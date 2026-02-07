@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-primary-black-900 text-primary-black-100 font-body;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-primary-gold/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primary-black-950;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-gold/40 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-gold/60;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-gold;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+@layer components {
+  .text-gold-gradient {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+
+  .gold-underline {
+    @apply relative;
+  }
+
+  .gold-underline::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-[2px] bg-primary-gold origin-left scale-x-0 transition-transform duration-300;
+  }
+
+  .gold-underline:hover::after {
+    @apply scale-x-100;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-section lg:py-section-lg;
+  }
+}
