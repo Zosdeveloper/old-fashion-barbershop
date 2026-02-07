@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/constants";
+import LenisProvider from "@/providers/LenisProvider";
+import { Navbar } from "@/components/navigation";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -27,10 +29,10 @@ export const metadata: Metadata = {
     "barbershop",
     "barber Naples FL",
     "men's haircut Naples",
-    "premium barbershop",
+    "premium barbershop Southwest Florida",
     "hot towel shave",
     "beard trim Naples",
-    "Southwest Florida barber",
+    "fade haircut Naples",
   ],
 };
 
@@ -41,7 +43,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <LenisProvider>
+          <Navbar />
+          <main>{children}</main>
+        </LenisProvider>
+      </body>
     </html>
   );
 }
