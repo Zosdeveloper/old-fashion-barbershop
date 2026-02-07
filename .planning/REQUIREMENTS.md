@@ -99,11 +99,11 @@
 | FOUN-03 | 1 | Complete |
 | FOUN-04 | 1 | Complete |
 | FOUN-05 | 7 | Pending |
-| HERO-01 | 2 | Pending |
-| HERO-02 | 2 | Pending |
-| HERO-03 | 2 | Pending |
-| ABOU-01 | 2 | Pending |
-| ABOU-02 | 2 | Pending |
+| HERO-01 | 2 | Complete |
+| HERO-02 | 2 | Complete |
+| HERO-03 | 2 | Complete |
+| ABOU-01 | 2 | Complete |
+| ABOU-02 | 2 | Complete |
 | SERV-01 | 3 | Pending |
 | SERV-02 | 3 | Pending |
 | SERV-03 | 3 | Pending |
@@ -126,7 +126,7 @@
 | SEOA-04 | 6 | Pending |
 | SEOA-05 | 6 | Pending |
 | SEOA-06 | 6 | Pending |
-| BOOK-01 | 2 | Pending |
+| BOOK-01 | 2 | Complete |
 | BOOK-02 | 1 | Complete |
 
 **Coverage:**
