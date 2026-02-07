@@ -94,45 +94,45 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUN-01 | — | Pending |
-| FOUN-02 | — | Pending |
-| FOUN-03 | — | Pending |
-| FOUN-04 | — | Pending |
-| FOUN-05 | — | Pending |
-| HERO-01 | — | Pending |
-| HERO-02 | — | Pending |
-| HERO-03 | — | Pending |
-| ABOU-01 | — | Pending |
-| ABOU-02 | — | Pending |
-| SERV-01 | — | Pending |
-| SERV-02 | — | Pending |
-| SERV-03 | — | Pending |
-| GALL-01 | — | Pending |
-| GALL-02 | — | Pending |
-| GALL-03 | — | Pending |
-| GALL-04 | — | Pending |
-| TEAM-01 | — | Pending |
-| TEAM-02 | — | Pending |
-| FAQQ-01 | — | Pending |
-| FAQQ-02 | — | Pending |
-| CONT-01 | — | Pending |
-| CONT-02 | — | Pending |
-| CONT-03 | — | Pending |
-| CONT-04 | — | Pending |
-| CONT-05 | — | Pending |
-| SEOA-01 | — | Pending |
-| SEOA-02 | — | Pending |
-| SEOA-03 | — | Pending |
-| SEOA-04 | — | Pending |
-| SEOA-05 | — | Pending |
-| SEOA-06 | — | Pending |
-| BOOK-01 | — | Pending |
-| BOOK-02 | — | Pending |
+| FOUN-01 | 1 | Pending |
+| FOUN-02 | 1 | Pending |
+| FOUN-03 | 1 | Pending |
+| FOUN-04 | 1 | Pending |
+| FOUN-05 | 7 | Pending |
+| HERO-01 | 2 | Pending |
+| HERO-02 | 2 | Pending |
+| HERO-03 | 2 | Pending |
+| ABOU-01 | 2 | Pending |
+| ABOU-02 | 2 | Pending |
+| SERV-01 | 3 | Pending |
+| SERV-02 | 3 | Pending |
+| SERV-03 | 3 | Pending |
+| GALL-01 | 4 | Pending |
+| GALL-02 | 4 | Pending |
+| GALL-03 | 4 | Pending |
+| GALL-04 | 4 | Pending |
+| TEAM-01 | 5 | Pending |
+| TEAM-02 | 5 | Pending |
+| FAQQ-01 | 5 | Pending |
+| FAQQ-02 | 5 | Pending |
+| CONT-01 | 5 | Pending |
+| CONT-02 | 5 | Pending |
+| CONT-03 | 5 | Pending |
+| CONT-04 | 5 | Pending |
+| CONT-05 | 5 | Pending |
+| SEOA-01 | 6 | Pending |
+| SEOA-02 | 6 | Pending |
+| SEOA-03 | 6 | Pending |
+| SEOA-04 | 6 | Pending |
+| SEOA-05 | 6 | Pending |
+| SEOA-06 | 6 | Pending |
+| BOOK-01 | 2 | Pending |
+| BOOK-02 | 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 34 total
-- Mapped to phases: 0
-- Unmapped: 34 ⚠️
+- Mapped to phases: 34
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-07*
