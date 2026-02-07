@@ -94,10 +94,10 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUN-01 | 1 | Pending |
-| FOUN-02 | 1 | Pending |
-| FOUN-03 | 1 | Pending |
-| FOUN-04 | 1 | Pending |
+| FOUN-01 | 1 | Complete |
+| FOUN-02 | 1 | Complete |
+| FOUN-03 | 1 | Complete |
+| FOUN-04 | 1 | Complete |
 | FOUN-05 | 7 | Pending |
 | HERO-01 | 2 | Pending |
 | HERO-02 | 2 | Pending |
@@ -127,7 +127,7 @@
 | SEOA-05 | 6 | Pending |
 | SEOA-06 | 6 | Pending |
 | BOOK-01 | 2 | Pending |
-| BOOK-02 | 1 | Pending |
+| BOOK-02 | 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 34 total
