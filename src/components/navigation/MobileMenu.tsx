@@ -14,22 +14,22 @@ interface MobileMenuProps {
 const overlayVariants = {
   closed: {
     opacity: 0,
-    transition: { duration: 0.3, ease: "easeInOut" },
+    transition: { duration: 0.3, ease: "easeInOut" as const },
   },
   open: {
     opacity: 1,
-    transition: { duration: 0.3, ease: "easeInOut" },
+    transition: { duration: 0.3, ease: "easeInOut" as const },
   },
 };
 
 const menuVariants = {
   closed: {
     x: "100%",
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
   open: {
     x: 0,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -40,7 +40,7 @@ const itemVariants = {
     x: 0,
     transition: {
       delay: 0.1 + i * 0.07,
-      type: "spring",
+      type: "spring" as const,
       stiffness: 300,
       damping: 30,
     },
