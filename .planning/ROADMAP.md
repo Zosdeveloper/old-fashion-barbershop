@@ -49,6 +49,11 @@
 
 **Goal:** Present barbershop services with compelling descriptions and premium imagery.
 
+**Plans:** 1 plan
+
+Plans:
+- [ ] 03-01-PLAN.md — Services data, placeholder images, cinematic asymmetric grid with 3D hover and scroll animations
+
 **Requirements:**
 - SERV-01: Service cards for Classic Haircut, Fade/Skin Fade, Line Work & Details, Beard Trim & Shaping, Hot Towel Shave
 - SERV-02: Each service has a brief compelling description (2-3 sentences), no pricing
