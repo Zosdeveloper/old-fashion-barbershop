@@ -145,6 +145,49 @@ export const TEAM_MEMBERS = [
   },
 ] as const;
 
+export const TESTIMONIALS = [
+  {
+    id: "t1",
+    quote:
+      "Best barbershop I've ever been to. Marco took the time to understand exactly what I wanted and delivered beyond my expectations. The Old Fashioned cocktail was the cherry on top.",
+    name: "Michael R.",
+    title: "Regular Client",
+    rating: 5,
+  },
+  {
+    id: "t2",
+    quote:
+      "The attention to detail is unmatched. I've been going here for over a year and every single cut has been perfect. This isn't just a barbershop — it's an experience.",
+    name: "David K.",
+    title: "Regular Client",
+    rating: 5,
+  },
+  {
+    id: "t3",
+    quote:
+      "Walked in without an appointment and they fit me right in. Daniel gave me the best fade I've ever had. The shop has an incredible vibe — brick walls, great music, and top-shelf cocktails.",
+    name: "James L.",
+    title: "First-Time Client",
+    rating: 5,
+  },
+  {
+    id: "t4",
+    quote:
+      "I drove 45 minutes from Fort Myers and it was worth every mile. The hot towel shave is a must — it's pure relaxation. Already booked my next appointment.",
+    name: "Chris P.",
+    title: "Fort Myers Client",
+    rating: 5,
+  },
+  {
+    id: "t5",
+    quote:
+      "My son and I both get our cuts here. The barbers are incredibly skilled and make everyone feel welcome. It's become our Saturday tradition.",
+    name: "Robert T.",
+    title: "Regular Client",
+    rating: 5,
+  },
+] as const;
+
 export const FAQ_ITEMS = [
   {
     question: "Do you accept walk-ins?",

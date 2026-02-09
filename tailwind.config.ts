@@ -42,7 +42,7 @@ const config: Config = {
       },
       fontFamily: {
         heading: ["var(--font-playfair)", "Georgia", "serif"],
-        body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        body: ["var(--font-cormorant)", "Georgia", "serif"],
       },
       spacing: {
         18: "4.5rem",
@@ -74,6 +74,7 @@ const config: Config = {
         "fade-in": "fadeIn 0.6s ease-out forwards",
         "slide-up": "slideUp 0.6s ease-out forwards",
         "gold-shimmer": "goldShimmer 3s ease-in-out infinite",
+        "ken-burns": "kenBurns 20s ease-in-out infinite alternate",
       },
       keyframes: {
         fadeIn: {
@@ -87,6 +88,10 @@ const config: Config = {
         goldShimmer: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%": { backgroundPosition: "100% 50%" },
+        },
+        kenBurns: {
+          "0%": { transform: "scale(1) translate(0%, 0%)" },
+          "100%": { transform: "scale(1.12) translate(-1.5%, -1%)" },
         },
       },
     },
