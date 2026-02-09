@@ -98,7 +98,7 @@
 | FOUN-02 | 1 | Complete |
 | FOUN-03 | 1 | Complete |
 | FOUN-04 | 1 | Complete |
-| FOUN-05 | 7 | Pending |
+| FOUN-05 | 7 | Complete |
 | HERO-01 | 2 | Complete |
 | HERO-02 | 2 | Complete |
 | HERO-03 | 2 | Complete |
@@ -120,12 +120,12 @@
 | CONT-03 | 5 | Complete |
 | CONT-04 | 5 | Complete |
 | CONT-05 | 5 | Complete |
-| SEOA-01 | 6 | Pending |
-| SEOA-02 | 6 | Pending |
-| SEOA-03 | 6 | Pending |
-| SEOA-04 | 6 | Pending |
-| SEOA-05 | 6 | Pending |
-| SEOA-06 | 6 | Pending |
+| SEOA-01 | 6 | Complete |
+| SEOA-02 | 6 | Complete |
+| SEOA-03 | 6 | Complete |
+| SEOA-04 | 6 | Complete |
+| SEOA-05 | 6 | Complete |
+| SEOA-06 | 6 | Complete |
 | BOOK-01 | 2 | Complete |
 | BOOK-02 | 1 | Complete |
 
