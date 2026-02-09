@@ -18,7 +18,7 @@ import { SERVICES, ADDON_SERVICES, BOOKSY_URL } from "@/lib/constants";
 gsap.registerPlugin(ScrollTrigger);
 
 /* ------------------------------------------------------------------ */
-/*  3D Tilt Service Card with Pricing                                  */
+/*  3D Tilt Service Card                                               */
 /* ------------------------------------------------------------------ */
 
 function ServiceCard({
@@ -101,46 +101,41 @@ function ServiceCard({
         {/* Signature badge */}
         {isSignature && (
           <div className="absolute top-4 left-4 md:top-6 md:left-6">
-            <span className="inline-block bg-primary-gold/90 text-primary-black-900 px-3 py-1 text-xs font-body font-semibold uppercase tracking-[0.2em] rounded-sm">
-              Signature
+            <span className="inline-block bg-primary-gold/90 text-primary-black-900 px-3 py-1 text-xs font-heading font-bold uppercase tracking-[0.2em] rounded-sm">
+              Core Service
             </span>
           </div>
         )}
 
-        {/* Price badge */}
+        {/* Duration badge */}
         <div className="absolute top-4 right-4 md:top-6 md:right-6">
-          <span className="inline-block bg-primary-black-950/80 backdrop-blur-sm text-primary-gold px-3 py-1.5 text-sm font-heading font-bold rounded-sm border border-primary-gold/20">
-            ${service.price}
+          <span className="inline-block bg-primary-black-950/80 backdrop-blur-sm text-primary-black-300 px-3 py-1.5 text-xs font-heading font-semibold rounded-sm border border-primary-black-700/50">
+            {service.duration}
           </span>
         </div>
       </div>
 
       {/* Content */}
       <div className={`relative p-5 md:p-6 ${isSignature ? "md:p-8" : ""}`}>
-        <div className="flex items-start justify-between gap-3 mb-2">
-          <div>
-            <h3
-              className={`font-heading font-bold text-white ${
-                isSignature ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
-              }`}
-            >
-              {service.title}
-            </h3>
-            {"subtitle" in service && service.subtitle && (
-              <span className="text-primary-gold font-body text-sm uppercase tracking-wider">
-                {service.subtitle}
-              </span>
-            )}
-          </div>
-          <span className="text-primary-black-500 font-body text-sm whitespace-nowrap mt-1">
-            {service.duration}
-          </span>
+        <div className="mb-2">
+          <h3
+            className={`font-heading font-bold text-white ${
+              isSignature ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
+            }`}
+          >
+            {service.title}
+          </h3>
+          {"subtitle" in service && service.subtitle && (
+            <span className="text-primary-gold font-heading text-sm font-bold uppercase tracking-wider">
+              {service.subtitle}
+            </span>
+          )}
         </div>
         <p
-          className={`text-primary-black-300 font-body leading-relaxed mb-4 ${
+          className={`text-primary-black-300 font-body leading-relaxed mb-5 ${
             isSignature
-              ? "text-base md:text-lg max-w-3xl"
-              : "text-sm md:text-base"
+              ? "text-lg md:text-xl max-w-3xl"
+              : "text-base md:text-lg"
           }`}
         >
           {service.description}
@@ -262,13 +257,13 @@ export default function Services() {
       <Container className="relative z-10 max-w-7xl">
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-12 md:mb-16">
-          <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-3">
+          <p className="text-primary-gold font-heading text-sm font-bold uppercase tracking-[0.3em] mb-3">
             Our Craft
           </p>
           <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
-            Services & Pricing
+            Services
           </h2>
-          <p className="text-primary-black-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-primary-black-300 font-body text-xl max-w-2xl mx-auto leading-relaxed">
             Every service is a ritual of precision, performed with intention
             and refined through years of mastery.
           </p>
@@ -311,9 +306,9 @@ export default function Services() {
             </div>
           )}
 
-          {/* Row 3: even split for remaining */}
+          {/* Row 3 */}
           {standardServices[4] && (
-            <div className={standardServices.length > 5 ? "md:col-span-6" : "md:col-span-12"}>
+            <div className="md:col-span-12">
               <ServiceCard service={standardServices[4]} className="h-full" />
             </div>
           )}
@@ -322,7 +317,7 @@ export default function Services() {
         {/* Add-on Services */}
         <div ref={addonsRef} className="mt-12 md:mt-16">
           <div className="text-center mb-8">
-            <h3 className="text-primary-gold font-body text-sm uppercase tracking-[0.3em]">
+            <h3 className="text-primary-gold font-heading text-sm font-bold uppercase tracking-[0.3em]">
               Add-On Services
             </h3>
           </div>
@@ -335,16 +330,11 @@ export default function Services() {
                 rel="noopener noreferrer"
                 className="group flex items-center justify-between px-6 py-4 bg-primary-black-900/50 border border-primary-black-800 rounded-sm hover:border-primary-gold/30 transition-colors duration-300"
               >
-                <div>
-                  <p className="text-white font-heading text-base font-semibold group-hover:text-primary-gold transition-colors">
-                    {addon.title}
-                  </p>
-                  <p className="text-primary-black-500 font-body text-xs mt-0.5">
-                    {addon.duration}
-                  </p>
-                </div>
-                <span className="text-primary-gold font-heading text-lg font-bold">
-                  ${addon.price}
+                <p className="text-white font-heading text-base font-bold group-hover:text-primary-gold transition-colors">
+                  {addon.title}
+                </p>
+                <span className="text-primary-black-500 font-heading text-xs font-semibold">
+                  {addon.duration}
                 </span>
               </a>
             ))}

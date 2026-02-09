@@ -19,8 +19,8 @@ const kenBurns = [
   { from: "scale(1) translate(-1%, 0%)", to: "scale(1.15) translate(1%, -1%)" },
 ];
 
-const SLIDE_DURATION = 6000; // ms per slide
-const FADE_DURATION = 2; // seconds for crossfade
+const SLIDE_DURATION = 4000; // ms per slide
+const FADE_DURATION = 1.2; // seconds for crossfade
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

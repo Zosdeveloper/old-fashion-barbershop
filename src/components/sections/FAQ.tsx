@@ -24,7 +24,7 @@ function AccordionItem({
         className="w-full flex items-center justify-between py-5 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="text-white font-heading text-lg pr-4 group-hover:text-primary-gold transition-colors duration-300">
+        <span className="text-white font-heading text-xl font-semibold pr-4 group-hover:text-primary-gold transition-colors duration-300">
           {question}
         </span>
         <motion.span
@@ -44,7 +44,7 @@ function AccordionItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="text-primary-black-300 font-body text-base leading-relaxed pb-5 pr-12">
+            <p className="text-primary-black-300 font-body text-lg leading-relaxed pb-5 pr-12">
               {answer}
             </p>
           </motion.div>
@@ -63,7 +63,7 @@ export default function FAQ() {
       <Container className="relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-2">
+            <p className="text-primary-gold font-heading text-sm font-bold uppercase tracking-[0.3em] mb-2">
               Common Questions
             </p>
             <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white">

@@ -13,7 +13,7 @@ export default function Contact() {
         <AmbientGlow position="top-right" color="gold" size={1} intensity={0.4} />
         <Container className="relative z-10">
           <div className="text-center mb-12">
-            <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-2">
+            <p className="text-primary-gold font-heading text-sm font-bold uppercase tracking-[0.3em] mb-2">
               Get In Touch
             </p>
             <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white">
@@ -32,7 +32,7 @@ export default function Contact() {
             >
               {/* Phone */}
               <div>
-                <h3 className="text-primary-gold font-body text-sm uppercase tracking-widest mb-2">
+                <h3 className="text-primary-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">
                   Phone
                 </h3>
                 <a
@@ -45,7 +45,7 @@ export default function Contact() {
 
               {/* Address */}
               <div>
-                <h3 className="text-primary-gold font-body text-sm uppercase tracking-widest mb-2">
+                <h3 className="text-primary-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">
                   Address
                 </h3>
                 <p className="text-primary-black-200 font-body text-lg leading-relaxed">
@@ -116,7 +116,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="text-center py-12"
           >
-            <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-3">
+            <p className="text-primary-gold font-heading text-sm font-bold uppercase tracking-[0.3em] mb-3">
               Your Chair Is Waiting
             </p>
             <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
@@ -124,7 +124,7 @@ export default function Contact() {
               <br />
               Premium Grooming?
             </h2>
-            <p className="text-primary-black-300 font-body text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+            <p className="text-primary-black-300 font-body text-xl max-w-xl mx-auto mb-8 leading-relaxed">
               Book your appointment today and discover why Naples trusts Old Fashion Barbershop for the cut that makes a difference.
             </p>
             <Button href={BOOKSY_URL} size="lg">

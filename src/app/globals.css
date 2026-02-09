@@ -16,7 +16,7 @@
   }
 
   body {
-    @apply bg-primary-black-900 text-primary-black-100 font-body;
+    @apply bg-primary-black-900 text-primary-black-100 font-body text-lg font-medium;
     overflow-x: hidden;
   }
 
@@ -124,7 +124,7 @@
 
 /* Hero slideshow Ken Burns — uses CSS custom properties per-slide */
 .hero-ken-burns {
-  animation: heroKenBurns 6s ease-in-out forwards;
+  animation: heroKenBurns 4s ease-in-out forwards;
 }
 
 @keyframes heroKenBurns {

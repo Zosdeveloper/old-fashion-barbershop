@@ -80,10 +80,10 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`gold-underline text-sm font-body font-medium uppercase tracking-widest py-1 transition-colors duration-300 ${
+                    className={`gold-underline text-sm font-heading font-bold uppercase tracking-[0.2em] py-1 transition-colors duration-300 ${
                       isActive
                         ? "text-primary-gold"
-                        : "text-primary-black-200 hover:text-primary-gold"
+                        : "text-white hover:text-primary-gold"
                     }`}
                   >
                     {item.label}

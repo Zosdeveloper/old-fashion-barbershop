@@ -52,7 +52,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="md:col-span-2 md:col-start-7">
-            <h4 className="text-primary-gold font-body text-xs uppercase tracking-[0.2em] mb-4">
+            <h4 className="text-primary-gold font-heading text-xs font-bold uppercase tracking-[0.2em] mb-4">
               Navigate
             </h4>
             <nav className="space-y-3">
@@ -70,7 +70,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="md:col-span-3">
-            <h4 className="text-primary-gold font-body text-xs uppercase tracking-[0.2em] mb-4">
+            <h4 className="text-primary-gold font-heading text-xs font-bold uppercase tracking-[0.2em] mb-4">
               Contact
             </h4>
             <div className="space-y-3 text-sm font-body">
@@ -107,7 +107,7 @@ export default function Footer() {
 
           {/* Hours */}
           <div className="md:col-span-2">
-            <h4 className="text-primary-gold font-body text-xs uppercase tracking-[0.2em] mb-4">
+            <h4 className="text-primary-gold font-heading text-xs font-bold uppercase tracking-[0.2em] mb-4">
               Hours
             </h4>
             <div className="space-y-1.5 text-xs font-body">
