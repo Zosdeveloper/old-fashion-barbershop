@@ -120,15 +120,13 @@ export default function Contact() {
               Your Chair Is Waiting
             </p>
             <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
-              Ready to Experience
-              <br />
-              Premium Grooming?
+              Become a Regular
             </h2>
             <p className="text-primary-black-300 font-body text-xl max-w-xl mx-auto mb-8 leading-relaxed">
-              Book your appointment today and discover why Naples trusts Old Fashion Barbershop for the cut that makes a difference.
+              Join the men who refuse to settle for ordinary. Reserve your spot today.
             </p>
             <Button href={BOOKSY_URL} size="lg">
-              Book Now
+              Book Your Experience
             </Button>
           </motion.div>
         </Container>

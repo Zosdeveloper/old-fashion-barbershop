@@ -163,7 +163,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button href={BOOKSY_URL} variant="primary" size="lg">
-              Book Appointment
+              Book Your Experience
             </Button>
             <Button href="/about" variant="outline" size="lg">
               Our Story

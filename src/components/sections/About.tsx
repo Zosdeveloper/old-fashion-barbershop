@@ -134,8 +134,8 @@ export default function About() {
               because the details matter.
             </p>
             <p className="text-white font-semibold text-lg">
-              This isn&apos;t just a haircut. It&apos;s a ritual. A moment of
-              refinement in your day.
+              This isn&apos;t just a haircut. This is where men refine their
+              presence.
             </p>
           </div>
         </div>

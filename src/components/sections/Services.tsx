@@ -264,8 +264,7 @@ export default function Services() {
             Services
           </h2>
           <p className="text-primary-black-300 font-body text-xl max-w-2xl mx-auto leading-relaxed">
-            Every service is a ritual of precision, performed with intention
-            and refined through years of mastery.
+            Premium grooming for men who value quality. No templates. No shortcuts.
           </p>
         </div>
 

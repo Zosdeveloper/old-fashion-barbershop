@@ -16,9 +16,9 @@ const VALUE_PROPS = [
         <circle cx="24" cy="35" r="1.5" fill="currentColor" stroke="none" />
       </svg>
     ),
-    title: "Signature Old Fashioned",
+    title: "The Ritual",
     description:
-      "Every client is welcomed with a hand-crafted Old Fashioned cocktail — our signature touch that turns a haircut into an experience.",
+      "Hot towels, steam, precision razors, and premium products. This is more than grooming — it's an experience. And yes, you'll be offered our signature Old Fashioned cocktail.",
   },
   {
     icon: (
@@ -45,9 +45,9 @@ const VALUE_PROPS = [
         <path d="M36 36c-1-2-3-4-5-4" />
       </svg>
     ),
-    title: "Master-Level Barbers",
+    title: "Craftsmanship",
     description:
-      "Our team brings 15+ years of combined experience. Every fade, shave, and lineup is executed with precision that only comes from thousands of cuts.",
+      "Every cut is tailored to your facial structure, lifestyle, and personal style. Our barbers are craftsmen — years of experience, zero shortcuts. We don't follow trends, we set them.",
   },
   {
     icon: (
@@ -55,9 +55,9 @@ const VALUE_PROPS = [
         <path d="M24 4l5.5 11.2L42 17l-9 8.8L35 38 24 32.2 13 38l2-12.2-9-8.8 12.5-1.8Z" />
       </svg>
     ),
-    title: "Premium Products Only",
+    title: "Built for Men",
     description:
-      "We use only top-shelf grooming products. From pre-shave oils to finishing balms, every product is selected for performance — never filler.",
+      "No rushing. No compromise. This is a space designed for men who value quality, confidence, and timeless style. Walk in as you are. Walk out elevated.",
   },
 ] as const;
 
@@ -109,10 +109,10 @@ export default function WhyUs() {
             The Difference
           </p>
           <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
-            Why Old Fashion
+            Not Just a Haircut
           </h2>
           <p className="text-primary-black-300 font-body text-xl max-w-2xl mx-auto leading-relaxed">
-            More than a barbershop — a destination built on craft, community, and attention to detail.
+            We don&apos;t rush. We refine. Every service is a ritual of precision, craftsmanship, and masculine confidence.
           </p>
         </div>
 

@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: "Old Fashion Barbershop",
-  tagline: "Precision Grooming for the Discerning Man",
+  tagline: "Where Men Elevate Their Presence",
   description:
     "Premium barbershop in Naples, FL. Expert haircuts, fades, beard shaping, and hot towel shaves in a refined atmosphere. Walk-ins welcome.",
   url: "https://oldfashionbarbershop.com",
@@ -53,7 +53,7 @@ export const SERVICES = [
   {
     id: "best-experience",
     title: "Best Experience In Town",
-    description: "Step into the ultimate modern grooming experience. This all-inclusive service is our finest offering — a full transformation from head to jaw.",
+    description: "An extended session combining premium grooming, styling, and complete relaxation. Includes haircut, beard work, hot towel treatments, and the attention to detail you deserve. This is for men who refuse to settle for ordinary.",
     image: "/images/services/hot-towel-shave.jpg",
     duration: "1h 20min",
     signature: false,
@@ -61,7 +61,7 @@ export const SERVICES = [
   {
     id: "mens-haircut",
     title: "Men's Haircut",
-    description: "Every service begins with a personalized consultation to ensure the perfect cut for your style, face shape, and lifestyle.",
+    description: "A tailored cut built around your style, facial structure, and lifestyle. We assess your hair type, face shape, and personal preferences to deliver a cut that looks sharp and feels right. This isn't a template — it's precision craftsmanship designed for you.",
     image: "/images/services/classic-haircut.jpg",
     duration: "30min",
     signature: true,
@@ -69,7 +69,7 @@ export const SERVICES = [
   {
     id: "haircut-beard-trim",
     title: "Men's Haircut & Beard Trim",
-    description: "A complete grooming service for the modern man. This includes a consultation, precision cut, and expert beard sculpting.",
+    description: "Razor-sharp detailing and professional shaping with premium oils and balms. We sculpt your beard to complement your face and enhance your presence. Every line matters.",
     image: "/images/services/beard-trim.jpg",
     duration: "30min",
     signature: false,
@@ -78,7 +78,7 @@ export const SERVICES = [
     id: "haircut-hot-steam-shave",
     title: "Haircut & Hot Steam Shave",
     subtitle: "Premium",
-    description: "A signature experience every gentleman deserves. This service begins with a precision haircut and finishes with a luxurious hot steam shave.",
+    description: "The classic straight razor shave with steam, hot towels, and a finishing ritual using high-quality aftershave. Paired with a precision haircut, this is old-school grooming at its finest — no rushing, no compromise.",
     image: "/images/services/line-work.jpg",
     duration: "1h",
     signature: false,
@@ -86,7 +86,7 @@ export const SERVICES = [
   {
     id: "hot-steam-shave",
     title: "Hot Steam Shave",
-    description: "Indulge in the ultimate grooming ritual. This service begins with a soothing hot towel treatment and finishes with a perfectly smooth shave.",
+    description: "The classic straight razor shave with steam, hot towels, and a finishing ritual. Smooth, clean, and incredibly satisfying. This is old-school grooming at its finest.",
     image: "/images/services/fade.jpg",
     duration: "30min",
     signature: false,
@@ -94,7 +94,7 @@ export const SERVICES = [
   {
     id: "kids-cut",
     title: "Kid's Cut",
-    description: "A fun and comfortable grooming experience designed just for kids. Each young client gets the same attention to detail as our adult services.",
+    description: "A classic introduction to grooming, delivered with patience and precision. We make it comfortable, professional, and fun. Teaching the next generation what quality grooming looks like.",
     image: "/images/gallery/cuts-05.jpg",
     duration: "30min",
     signature: false,
@@ -171,7 +171,7 @@ export const TESTIMONIALS = [
   {
     id: "t1",
     quote:
-      "Best barbershop I've ever been to. Marco took the time to understand exactly what I wanted and delivered beyond my expectations. The Old Fashioned cocktail was the cherry on top.",
+      "Old Fashioned isn't just a barbershop — it's where I go to reset. The attention to detail is unmatched and the Old Fashioned cocktail is the cherry on top.",
     name: "Michael R.",
     title: "Regular Client",
     rating: 5,
@@ -179,7 +179,7 @@ export const TESTIMONIALS = [
   {
     id: "t2",
     quote:
-      "The attention to detail is unmatched. I've been going here for over a year and every single cut has been perfect. This isn't just a barbershop — it's an experience.",
+      "Finally, a place that understands what men want. Professional, masculine, and worth every minute. I've been coming for over a year and every single cut has been perfect.",
     name: "David K.",
     title: "Regular Client",
     rating: 5,
@@ -187,7 +187,7 @@ export const TESTIMONIALS = [
   {
     id: "t3",
     quote:
-      "Walked in without an appointment and they fit me right in. Daniel gave me the best fade I've ever had. The shop has an incredible vibe — brick walls, great music, and top-shelf cocktails.",
+      "Walked in without an appointment and they fit me right in. Daniel gave me the best fade I've ever had. The vibe is incredible — brick walls, great music, and top-shelf cocktails.",
     name: "James L.",
     title: "First-Time Client",
     rating: 5,
@@ -195,7 +195,7 @@ export const TESTIMONIALS = [
   {
     id: "t4",
     quote:
-      "I drove 45 minutes from Fort Myers and it was worth every mile. The hot towel shave is a must — it's pure relaxation. Already booked my next appointment.",
+      "The hot towel shave changed everything. I drove 45 minutes from Fort Myers and it was worth every mile. This is the only barbershop I trust with my look.",
     name: "Chris P.",
     title: "Fort Myers Client",
     rating: 5,
@@ -203,7 +203,7 @@ export const TESTIMONIALS = [
   {
     id: "t5",
     quote:
-      "My son and I both get our cuts here. The barbers are incredibly skilled and make everyone feel welcome. It's become our Saturday tradition.",
+      "My son and I both get our cuts here. The barbers are craftsmen who make everyone feel welcome. It's become our Saturday tradition.",
     name: "Robert T.",
     title: "Regular Client",
     rating: 5,

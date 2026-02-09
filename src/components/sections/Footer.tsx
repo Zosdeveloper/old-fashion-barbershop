@@ -134,7 +134,7 @@ export default function Footer() {
               &copy; {year} {SITE_CONFIG.name}. All rights reserved.
             </p>
             <p className="text-primary-black-700 font-body text-[10px] uppercase tracking-wider">
-              Precision Grooming &middot; Naples, FL
+              Where Men Elevate Their Presence &middot; Naples, FL
             </p>
           </div>
         </div>
