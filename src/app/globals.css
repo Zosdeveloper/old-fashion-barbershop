@@ -78,3 +78,25 @@
     @apply py-section lg:py-section-lg;
   }
 }
+
+/* Phase 7: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Phase 7: Gold glow on button hover */
+@layer components {
+  .gold-glow {
+    transition: box-shadow 0.3s ease;
+  }
+  .gold-glow:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.15);
+  }
+}

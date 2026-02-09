@@ -31,7 +31,7 @@ const sizeStyles: Record<ButtonSize, string> = {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", href, children, ...props }, ref) => {
     const classes = cn(
-      "inline-flex items-center justify-center rounded-sm transition-colors duration-300 tracking-wide uppercase",
+      "inline-flex items-center justify-center rounded-sm transition-colors duration-300 tracking-wide uppercase gold-glow",
       variantStyles[variant],
       sizeStyles[size],
       className

@@ -4,6 +4,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 import LenisProvider from "@/providers/LenisProvider";
 import { Navbar } from "@/components/navigation";
 import { Footer } from "@/components/sections";
+import JsonLd from "@/components/seo/JsonLd";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -22,7 +23,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: SITE_CONFIG.name,
+    default: `${SITE_CONFIG.name} | Premium Barbershop in Naples, FL`,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
@@ -31,10 +32,40 @@ export const metadata: Metadata = {
     "barber Naples FL",
     "men's haircut Naples",
     "premium barbershop Southwest Florida",
-    "hot towel shave",
+    "hot towel shave Naples",
     "beard trim Naples",
     "fade haircut Naples",
+    "best barber Naples Florida",
+    "Old Fashion Barbershop",
   ],
+  authors: [{ name: SITE_CONFIG.name }],
+  creator: SITE_CONFIG.name,
+  metadataBase: new URL(SITE_CONFIG.url),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_CONFIG.url,
+    siteName: SITE_CONFIG.name,
+    title: `${SITE_CONFIG.name} | Premium Barbershop in Naples, FL`,
+    description: SITE_CONFIG.description,
+    images: [
+      {
+        url: "/images/hero/hero-barbershop.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_CONFIG.name} — Premium Barbershop in Naples, FL`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_CONFIG.name} | Premium Barbershop in Naples, FL`,
+    description: SITE_CONFIG.description,
+    images: ["/images/hero/hero-barbershop.jpg"],
+  },
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
 };
 
 export default function RootLayout({
@@ -45,6 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body>
+        <JsonLd />
         <LenisProvider>
           <Navbar />
           <main>{children}</main>

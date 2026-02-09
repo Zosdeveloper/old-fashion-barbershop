@@ -5,7 +5,13 @@ import GalleryClient from "@/components/gallery/GalleryClient";
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Browse our latest cuts, styles, and shop photos at Old Fashion Barbershop in Naples, FL.",
+    "Browse our latest cuts, fades, beard work, and shop photos at Old Fashion Barbershop in Naples, FL. See the craftsmanship before you book.",
+  openGraph: {
+    title: "Gallery | Old Fashion Barbershop",
+    description:
+      "Browse our latest cuts, fades, beard work, and shop photos at Old Fashion Barbershop in Naples, FL.",
+    images: ["/images/hero/hero-barbershop.jpg"],
+  },
 };
 
 export default function GalleryPage() {
