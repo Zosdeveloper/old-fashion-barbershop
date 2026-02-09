@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import {
   motion,
   useMotionValue,
@@ -9,8 +9,13 @@ import {
   useSpring,
   type MotionStyle,
 } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Container, Section, Button } from "@/components/ui";
+import AmbientGlow from "@/components/effects/AmbientGlow";
 import { SERVICES, BOOKSY_URL } from "@/lib/constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 /* ------------------------------------------------------------------ */
 /*  3D Tilt Card                                                       */
@@ -28,7 +33,6 @@ function ServiceCard({
   const cardRef = useRef<HTMLDivElement>(null);
   const [isTouch, setIsTouch] = useState(false);
 
-  // Motion values for 3D tilt
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
@@ -72,12 +76,11 @@ function ServiceCard({
   return (
     <motion.div
       ref={cardRef}
-      className={`group relative overflow-hidden rounded-sm bg-primary-black-900 ${className ?? ""}`}
+      className={`group relative overflow-hidden rounded-sm bg-primary-black-900 service-card ${className ?? ""}`}
       style={tiltStyle}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
-      variants={cardVariants}
     >
       {/* Image */}
       <div
@@ -151,133 +154,141 @@ function ServiceCard({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Animation Variants                                                 */
-/* ------------------------------------------------------------------ */
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-const signatureVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.92,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.9,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-const headerVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-/* ------------------------------------------------------------------ */
-/*  Services Section                                                   */
+/*  Services Section with GSAP scroll animations                       */
 /* ------------------------------------------------------------------ */
 
 export default function Services() {
   const standardServices = SERVICES.filter((s) => !s.signature);
   const signatureService = SERVICES.find((s) => s.signature);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const signatureRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Header reveal
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+      }
+
+      // Cards stagger reveal
+      if (gridRef.current) {
+        const cards = gridRef.current.querySelectorAll(".service-card");
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: "top 80%",
+            },
+          }
+        );
+      }
+
+      // Signature card special entrance
+      if (signatureRef.current) {
+        gsap.fromTo(
+          signatureRef.current,
+          { opacity: 0, y: 60, scale: 0.92 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: signatureRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <Section id="services">
-      <Container className="max-w-7xl">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={containerVariants}
-        >
-          {/* Section Header */}
-          <motion.div variants={headerVariants} className="text-center mb-12 md:mb-16">
-            <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-3">
-              Our Craft
-            </p>
-            <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
-              Services
-            </h2>
-            <p className="text-primary-black-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
-              Every service is a ritual of precision, performed with intention
-              and refined through years of mastery.
-            </p>
-          </motion.div>
+    <Section id="services" as="section" ref={sectionRef} className="relative overflow-hidden">
+      <AmbientGlow position="top-right" color="gold" size={1.2} intensity={0.6} />
+      <AmbientGlow position="bottom-left" color="warm" size={1} intensity={0.4} />
+      <Container className="relative z-10 max-w-7xl">
+        {/* Section Header */}
+        <div ref={headerRef} className="text-center mb-12 md:mb-16">
+          <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-3">
+            Our Craft
+          </p>
+          <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
+            Services
+          </h2>
+          <p className="text-primary-black-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
+            Every service is a ritual of precision, performed with intention
+            and refined through years of mastery.
+          </p>
+        </div>
 
-          {/* Asymmetric Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
-            {/* Row 1: 7/5 split */}
-            {standardServices[0] && (
-              <div className="md:col-span-7">
-                <ServiceCard service={standardServices[0]} className="h-full" />
-              </div>
-            )}
-            {standardServices[1] && (
-              <div className="md:col-span-5">
-                <ServiceCard service={standardServices[1]} className="h-full" />
-              </div>
-            )}
+        {/* Asymmetric Grid */}
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+          {/* Row 1: 7/5 split */}
+          {standardServices[0] && (
+            <div className="md:col-span-7">
+              <ServiceCard service={standardServices[0]} className="h-full" />
+            </div>
+          )}
+          {standardServices[1] && (
+            <div className="md:col-span-5">
+              <ServiceCard service={standardServices[1]} className="h-full" />
+            </div>
+          )}
 
-            {/* Row 2: 5/7 split */}
-            {standardServices[2] && (
-              <div className="md:col-span-5">
-                <ServiceCard service={standardServices[2]} className="h-full" />
-              </div>
-            )}
-            {standardServices[3] && (
-              <div className="md:col-span-7">
-                <ServiceCard service={standardServices[3]} className="h-full" />
-              </div>
-            )}
+          {/* Row 2: 5/7 split */}
+          {standardServices[2] && (
+            <div className="md:col-span-5">
+              <ServiceCard service={standardServices[2]} className="h-full" />
+            </div>
+          )}
+          {standardServices[3] && (
+            <div className="md:col-span-7">
+              <ServiceCard service={standardServices[3]} className="h-full" />
+            </div>
+          )}
 
-            {/* Row 3: Full-width signature */}
-            {signatureService && (
-              <motion.div
-                className="md:col-span-12"
-                variants={signatureVariants}
-              >
-                <ServiceCard
-                  service={signatureService}
-                  isSignature
-                  className="border border-primary-gold/20"
-                />
-              </motion.div>
-            )}
-          </div>
-        </motion.div>
+          {/* Row 3: Full-width signature */}
+          {signatureService && (
+            <div ref={signatureRef} className="md:col-span-12">
+              <ServiceCard
+                service={signatureService}
+                isSignature
+                className="border border-primary-gold/20"
+              />
+            </div>
+          )}
+        </div>
       </Container>
     </Section>
   );

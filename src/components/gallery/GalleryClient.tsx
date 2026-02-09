@@ -1,11 +1,19 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GALLERY_ITEMS, GALLERY_CATEGORIES, type GalleryCategory } from "@/lib/constants";
 
+gsap.registerPlugin(ScrollTrigger);
+
 type GalleryItem = (typeof GALLERY_ITEMS)[number];
+
+/* ------------------------------------------------------------------ */
+/*  Lightbox                                                           */
+/* ------------------------------------------------------------------ */
 
 function Lightbox({
   item,
@@ -26,7 +34,6 @@ function Lightbox({
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
-      {/* Close button */}
       <button
         onClick={onClose}
         className="absolute top-6 right-6 z-10 text-white/70 hover:text-primary-gold transition-colors"
@@ -37,7 +44,6 @@ function Lightbox({
         </svg>
       </button>
 
-      {/* Prev button */}
       <button
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
         className="absolute left-4 md:left-8 z-10 p-2 text-white/70 hover:text-primary-gold transition-colors"
@@ -48,7 +54,6 @@ function Lightbox({
         </svg>
       </button>
 
-      {/* Next button */}
       <button
         onClick={(e) => { e.stopPropagation(); onNext(); }}
         className="absolute right-4 md:right-8 z-10 p-2 text-white/70 hover:text-primary-gold transition-colors"
@@ -59,7 +64,6 @@ function Lightbox({
         </svg>
       </button>
 
-      {/* Image */}
       <motion.div
         key={item.id}
         className="relative w-[90vw] h-[80vh] max-w-5xl"
@@ -85,9 +89,14 @@ function Lightbox({
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Gallery Client                                                     */
+/* ------------------------------------------------------------------ */
+
 export default function GalleryClient() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const filtered = activeCategory === "All"
     ? GALLERY_ITEMS
@@ -104,7 +113,6 @@ export default function GalleryClient() {
     setLightboxIndex((prev) => (prev !== null ? (prev - 1 + filtered.length) % filtered.length : null));
   }, [filtered.length]);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
@@ -116,6 +124,24 @@ export default function GalleryClient() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
+  // GSAP stagger reveal when category changes
+  useEffect(() => {
+    if (!gridRef.current) return;
+    const items = gridRef.current.querySelectorAll(".gallery-item");
+    gsap.fromTo(
+      items,
+      { opacity: 0, y: 30, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        stagger: 0.06,
+        ease: "power3.out",
+      }
+    );
+  }, [activeCategory]);
+
   return (
     <>
       {/* Filter Buttons */}
@@ -124,57 +150,60 @@ export default function GalleryClient() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-5 py-2 rounded-sm text-sm font-body uppercase tracking-widest transition-all duration-300 border ${
+            className={`relative px-5 py-2 rounded-sm text-sm font-body uppercase tracking-widest transition-all duration-300 border overflow-hidden ${
               activeCategory === cat
                 ? "bg-primary-gold text-primary-black-900 border-primary-gold font-semibold"
                 : "border-primary-black-600 text-primary-black-300 hover:border-primary-gold hover:text-primary-gold"
             }`}
           >
             {cat}
+            {activeCategory === cat && (
+              <motion.div
+                layoutId="gallery-filter-active"
+                className="absolute inset-0 bg-primary-gold -z-10"
+                transition={{ type: "spring", stiffness: 400, damping: 35 }}
+              />
+            )}
           </button>
         ))}
       </div>
 
       {/* Masonry Grid */}
-      <motion.div
-        layout
+      <div
+        ref={gridRef}
         className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4"
       >
-        <AnimatePresence mode="popLayout">
-          {filtered.map((item, index) => (
-            <motion.div
-              key={item.id}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              className="break-inside-avoid group cursor-pointer relative overflow-hidden rounded-sm"
-              onClick={() => openLightbox(index)}
-            >
-              <div className="relative aspect-[4/5] sm:aspect-auto">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={800}
-                  height={item.category === "Interior" ? 530 : item.category === "Cocktails" ? 800 : 600}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading="lazy"
-                />
-              </div>
+        {filtered.map((item, index) => (
+          <div
+            key={item.id}
+            className="gallery-item break-inside-avoid group cursor-pointer relative overflow-hidden rounded-sm transition-all duration-500 hover:shadow-[0_8px_30px_rgba(212,175,55,0.12)] hover:-translate-y-1"
+            onClick={() => openLightbox(index)}
+          >
+            <div className="relative aspect-[4/5] sm:aspect-auto overflow-hidden">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={800}
+                height={item.category === "Interior" ? 530 : item.category === "Cocktails" ? 800 : 600}
+                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading="lazy"
+              />
+            </div>
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <div>
-                  <p className="text-white text-sm font-body">{item.alt}</p>
-                  <p className="text-primary-gold text-xs font-body uppercase tracking-wider mt-1">{item.category}</p>
-                </div>
+            {/* Hover overlay with depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
+              <div>
+                <p className="text-white text-sm font-body font-medium">{item.alt}</p>
+                <p className="text-primary-gold text-xs font-body uppercase tracking-wider mt-1">{item.category}</p>
               </div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+            </div>
+
+            {/* Gold border accent on hover */}
+            <div className="absolute inset-0 rounded-sm border border-transparent group-hover:border-primary-gold/20 transition-colors duration-500 pointer-events-none" />
+          </div>
+        ))}
+      </div>
 
       {/* Lightbox */}
       <AnimatePresence>

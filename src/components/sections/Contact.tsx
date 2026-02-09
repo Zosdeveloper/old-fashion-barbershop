@@ -2,14 +2,16 @@
 
 import { motion } from "framer-motion";
 import { Container, Section, Button } from "@/components/ui";
+import AmbientGlow from "@/components/effects/AmbientGlow";
 import { BUSINESS_INFO, BOOKSY_URL } from "@/lib/constants";
 
 export default function Contact() {
   return (
     <>
       {/* Contact Info Section */}
-      <Section id="contact" className="bg-primary-black-950">
-        <Container>
+      <Section id="contact" className="bg-primary-black-950 relative overflow-hidden">
+        <AmbientGlow position="top-right" color="gold" size={1} intensity={0.4} />
+        <Container className="relative z-10">
           <div className="text-center mb-12">
             <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-2">
               Get In Touch

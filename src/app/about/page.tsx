@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { About, Team } from "@/components/sections";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export const metadata: Metadata = {
   title: "About Us & Our Team",
@@ -18,6 +19,7 @@ export default function AboutPage() {
     <>
       <div className="pt-24" />
       <About />
+      <SectionDivider variant="gold-line" />
       <Team />
     </>
   );

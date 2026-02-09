@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, Section } from "@/components/ui";
+import AmbientGlow from "@/components/effects/AmbientGlow";
 import { FAQ_ITEMS } from "@/lib/constants";
 
 function AccordionItem({
@@ -57,8 +58,9 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <Section id="faq">
-      <Container>
+    <Section id="faq" className="relative overflow-hidden">
+      <AmbientGlow position="top-left" color="warm" size={0.8} intensity={0.5} />
+      <Container className="relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-2">

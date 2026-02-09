@@ -1,24 +1,77 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Container, Section } from "@/components/ui";
 import { TEAM_MEMBERS } from "@/lib/constants";
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.15, ease: "easeOut" as const },
-  }),
-};
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Team() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Header
+      gsap.fromTo(
+        ".team-header > *",
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".team-header", start: "top 85%" },
+        }
+      );
+
+      // Team cards stagger with scale
+      gsap.fromTo(
+        ".team-card",
+        { opacity: 0, y: 50, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: { trigger: ".team-grid", start: "top 80%" },
+        }
+      );
+
+      // Parallax on team images
+      const images = sectionRef.current?.querySelectorAll(".team-card-image");
+      images?.forEach((img) => {
+        gsap.fromTo(
+          img,
+          { yPercent: -5 },
+          {
+            yPercent: 5,
+            ease: "none",
+            scrollTrigger: {
+              trigger: img.closest(".team-card"),
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <Section id="team" className="bg-primary-black-950">
+    <Section id="team" className="bg-primary-black-950" ref={sectionRef}>
       <Container>
-        <div className="text-center mb-16">
+        <div className="team-header text-center mb-16">
           <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-2">
             Meet the Barbers
           </p>
@@ -27,23 +80,15 @@ export default function Team() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {TEAM_MEMBERS.map((member, i) => (
-            <motion.div
-              key={member.id}
-              custom={i}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="group relative"
-            >
+        <div className="team-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {TEAM_MEMBERS.map((member) => (
+            <div key={member.id} className="team-card group relative">
               <div className="relative aspect-[3/4] overflow-hidden rounded-sm mb-5">
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="team-card-image object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   loading="lazy"
                 />
@@ -62,7 +107,7 @@ export default function Team() {
                   {member.bio}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </Container>

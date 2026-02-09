@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface SectionProps {
@@ -7,18 +8,20 @@ interface SectionProps {
   as?: React.ElementType;
 }
 
-export default function Section({
-  children,
-  className,
-  id,
-  as: Component = "section",
-}: SectionProps) {
-  return (
-    <Component
-      id={id}
-      className={cn("section-padding", className)}
-    >
-      {children}
-    </Component>
-  );
-}
+const Section = forwardRef<HTMLElement, SectionProps>(
+  ({ children, className, id, as: Component = "section" }, ref) => {
+    return (
+      <Component
+        ref={ref}
+        id={id}
+        className={cn("section-padding", className)}
+      >
+        {children}
+      </Component>
+    );
+  }
+);
+
+Section.displayName = "Section";
+
+export default Section;
