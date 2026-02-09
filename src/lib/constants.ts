@@ -45,3 +45,46 @@ export const SOCIAL_LINKS = {
 export const BOOKSY_URL =
   process.env.NEXT_PUBLIC_BOOKSY_URL ||
   "https://booksy.com/en-us/dl/placeholder";
+
+export const SERVICES = [
+  {
+    id: "classic-haircut",
+    title: "Classic Haircut",
+    description:
+      "Every cut begins with a one-on-one consultation and ends with a ritual of precision. We take the time to understand your style, sculpt every line by hand, and deliver a finish that speaks for itself.",
+    image: "/images/services/classic-haircut.jpg",
+    signature: false,
+  },
+  {
+    id: "fade-skin-fade",
+    title: "Fade / Skin Fade",
+    description:
+      "Seamless blending elevated to an art form. Our barbers master the gradient from skin to length with meticulous clipper control, delivering modern craftsmanship that turns heads.",
+    image: "/images/services/fade.jpg",
+    signature: false,
+  },
+  {
+    id: "line-work-details",
+    title: "Line Work & Details",
+    description:
+      "Architectural precision for the finishing touch. Sharp edges, clean partings, and razor-defined lines that frame your look with the kind of detail only a master barber can deliver.",
+    image: "/images/services/line-work.jpg",
+    signature: false,
+  },
+  {
+    id: "beard-trim-shaping",
+    title: "Beard Trim & Shaping",
+    description:
+      "Expert sculpting that transforms facial hair into a statement. We shape, taper, and refine your beard with surgical precision, creating clean lines that complement your bone structure.",
+    image: "/images/services/beard-trim.jpg",
+    signature: false,
+  },
+  {
+    id: "hot-towel-shave",
+    title: "Hot Towel Shave",
+    description:
+      "The ultimate sensory experience in men's grooming. Warm lather, steaming towels, and the steady hand of a straight razor gliding across your skin. This is relaxation refined into ritual — our signature service.",
+    image: "/images/services/hot-towel-shave.jpg",
+    signature: true,
+  },
+] as const;
