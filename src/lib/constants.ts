@@ -43,11 +43,10 @@ export const BOOKSY_URL =
   "https://booksy.com/en-us/dl/placeholder";
 
 export const HERO_IMAGES = [
-  { src: "/images/hero/hero-barbershop.jpg", alt: "Old Fashion Barbershop interior" },
-  { src: "/images/gallery/cocktails-02.jpg", alt: "Signature Old Fashioned cocktail" },
-  { src: "/images/gallery/interior-03.jpg", alt: "Barber and client at the chair" },
-  { src: "/images/gallery/cuts-02.jpg", alt: "Clean skin fade side profile" },
-  { src: "/images/about/signature-cocktail.jpg", alt: "Signature cocktail service" },
+  { src: "/images/hero/hero-beard-trim.jpg", alt: "Master barber trimming a client's beard" },
+  { src: "/images/hero/hero-cocktail.jpg", alt: "Signature Old Fashioned cocktail being crafted" },
+  { src: "/images/hero/hero-scissors-cut.jpg", alt: "Precision scissor cut in progress" },
+  { src: "/images/hero/hero-finishing.jpg", alt: "Barber finishing a fresh cut" },
 ] as const;
 
 export const SERVICES = [

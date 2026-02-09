@@ -6,7 +6,6 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { Container } from "@/components/ui";
 import Button from "@/components/ui/Button";
 import { SITE_CONFIG, BOOKSY_URL, HERO_IMAGES } from "@/lib/constants";
-import GoldParticles from "@/components/effects/GoldParticles";
 
 /* ------------------------------------------------------------------ */
 /*  Ken Burns directions — each slide gets its own movement            */
@@ -16,7 +15,6 @@ const kenBurns = [
   { from: "scale(1.1) translate(-1%, 0%)", to: "scale(1) translate(1%, 1%)" },
   { from: "scale(1) translate(1%, 1%)", to: "scale(1.12) translate(-1%, -2%)" },
   { from: "scale(1.12) translate(0%, -1%)", to: "scale(1) translate(0%, 1%)" },
-  { from: "scale(1) translate(-1%, 0%)", to: "scale(1.15) translate(1%, -1%)" },
 ];
 
 const SLIDE_DURATION = 4000; // ms per slide
@@ -116,9 +114,6 @@ export default function Hero() {
             "radial-gradient(ellipse at top center, rgba(212,175,55,0.3) 0%, transparent 70%)",
         }}
       />
-
-      {/* Gold Particles */}
-      <GoldParticles count={35} />
 
       {/* Content */}
       <motion.div
