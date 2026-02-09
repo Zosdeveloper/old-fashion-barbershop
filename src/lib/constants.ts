@@ -29,12 +29,8 @@ export const BUSINESS_INFO = {
 } as const;
 
 export const NAV_ITEMS = [
-  { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Team", href: "#team" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
 ] as const;
 

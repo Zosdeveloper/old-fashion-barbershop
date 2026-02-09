@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { NAV_ITEMS, BOOKSY_URL } from "@/lib/constants";
-import NavLink from "./NavLink";
 import Button from "@/components/ui/Button";
 
 interface MobileMenuProps {
@@ -49,6 +50,7 @@ const itemVariants = {
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   useScrollLock(isOpen);
+  const pathname = usePathname();
 
   return (
     <AnimatePresence>
@@ -76,23 +78,35 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             aria-label="Mobile navigation"
           >
             <ul className="flex flex-col gap-6">
-              {NAV_ITEMS.map((item, i) => (
-                <motion.li
-                  key={item.label}
-                  custom={i}
-                  variants={itemVariants}
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                >
-                  <NavLink
-                    href={item.href}
-                    label={item.label}
-                    variant="mobile"
-                    onClick={onClose}
-                  />
-                </motion.li>
-              ))}
+              {NAV_ITEMS.map((item, i) => {
+                const isActive =
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
+
+                return (
+                  <motion.li
+                    key={item.label}
+                    custom={i}
+                    variants={itemVariants}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={onClose}
+                      className={`block text-3xl font-heading font-semibold transition-colors duration-300 ${
+                        isActive
+                          ? "text-primary-gold"
+                          : "text-white hover:text-primary-gold"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.li>
+                );
+              })}
               <motion.li
                 custom={NAV_ITEMS.length}
                 variants={itemVariants}

@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { NAV_ITEMS, SITE_CONFIG, BOOKSY_URL } from "@/lib/constants";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import NavLink from "./NavLink";
 import HamburgerButton from "./HamburgerButton";
 import MobileMenu from "./MobileMenu";
 
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -47,38 +49,47 @@ export default function Navbar() {
         }`}
       >
         <Container>
-          <nav className="flex items-center justify-between h-18">
+          <nav className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a
-              href="#hero"
+            <Link
+              href="/"
               className="relative z-50 flex items-center gap-3 hover:opacity-90 transition-opacity duration-300"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
             >
               <Image
                 src="/images/logo.png"
                 alt={SITE_CONFIG.name}
-                width={44}
-                height={44}
-                className="w-11 h-11"
+                width={56}
+                height={54}
+                className="w-14 h-auto"
                 priority
               />
               <span className="font-heading text-xl font-bold text-white hidden sm:inline">
                 {SITE_CONFIG.name}
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {NAV_ITEMS.map((item) => (
-                <NavLink
-                  key={item.label}
-                  href={item.href}
-                  label={item.label}
-                />
-              ))}
+              {NAV_ITEMS.map((item) => {
+                const isActive =
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(item.href);
+
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={`gold-underline text-sm font-body font-medium uppercase tracking-widest py-1 transition-colors duration-300 ${
+                      isActive
+                        ? "text-primary-gold"
+                        : "text-primary-black-200 hover:text-primary-gold"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Desktop Book Now */}

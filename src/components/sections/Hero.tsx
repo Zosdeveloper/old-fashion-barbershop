@@ -81,7 +81,7 @@ export default function Hero() {
           <Button href={BOOKSY_URL} variant="primary" size="lg">
             Book Appointment
           </Button>
-          <Button href="#about" variant="outline" size="lg">
+          <Button href="/about" variant="outline" size="lg">
             Our Story
           </Button>
         </motion.div>
@@ -95,9 +95,9 @@ export default function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <a
-          href="#about"
+          href="#services"
           className="flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors"
-          aria-label="Scroll to about section"
+          aria-label="Scroll to services section"
         >
           <span className="text-xs uppercase tracking-widest font-body">
             Scroll
