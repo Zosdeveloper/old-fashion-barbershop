@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-02-07)
 
 **Core value:** Every visitor feels they've found the right barbershop within 3 seconds and can book in one click.
-**Current focus:** Phase 5
+**Current focus:** Phase 6
 
 ## Current Milestone: v1.0
 
@@ -15,15 +15,15 @@ See: .planning/PROJECT.md (updated 2026-02-07)
 | 2 | Hero & About Sections | ✓ Complete | 1/1 | 100% |
 | 3 | Services Section | ✓ Complete | 1/1 | 100% |
 | 4 | Gallery Page | ✓ Complete | 1/1 | 100% |
-| 5 | Team, FAQ, Contact & Footer | ○ Pending | 0/0 | 0% |
+| 5 | Team, FAQ, Contact & Footer | ✓ Complete | 1/1 | 100% |
 | 6 | SEO, AEO & Performance Optimization | ○ Pending | 0/0 | 0% |
 | 7 | Animations, Polish & Final Integration | ○ Pending | 0/0 | 0% |
 
-Progress: [████████████░░░░░░░░] ~57% (8/14 plans estimated)
+Progress: [██████████████░░░░░░] ~71% (10/14 plans estimated)
 
 ## Active Phase
 
-**Phase 4: Gallery Page**
+**Phase 5: Team, FAQ, Contact & Footer**
 Status: Complete
 Plans: 1/1 complete
 
@@ -49,3 +49,4 @@ Resume file: None
 - 2026-02-07: Phase 2 executed — Hero & About sections built
 - 2026-02-08: Phase 3 executed (1 plan) — Services section with asymmetric grid, 3D hover, stagger animations
 - 2026-02-08: Phase 4 executed — Gallery page with masonry grid, category filters, lightbox, 14 placeholder images
+- 2026-02-08: Phase 5 executed — Team cards, FAQ accordion, Contact with map, CTA section, Footer
