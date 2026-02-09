@@ -88,3 +88,30 @@ export const SERVICES = [
     signature: true,
   },
 ] as const;
+
+export type GalleryCategory = "All" | "Cuts" | "Interior" | "Team" | "Cocktails";
+
+export const GALLERY_CATEGORIES: GalleryCategory[] = [
+  "All",
+  "Cuts",
+  "Interior",
+  "Team",
+  "Cocktails",
+];
+
+export const GALLERY_ITEMS = [
+  { id: "cuts-01", src: "/images/gallery/cuts-01.jpg", alt: "Classic scissor cut with textured finish", category: "Cuts" as const },
+  { id: "cuts-02", src: "/images/gallery/cuts-02.jpg", alt: "Sharp skin fade with hard part", category: "Cuts" as const },
+  { id: "cuts-03", src: "/images/gallery/cuts-03.jpg", alt: "Mid fade with styled top", category: "Cuts" as const },
+  { id: "cuts-04", src: "/images/gallery/cuts-04.jpg", alt: "Low taper fade with beard lineup", category: "Cuts" as const },
+  { id: "cuts-05", src: "/images/gallery/cuts-05.jpg", alt: "Precision buzz cut with edge work", category: "Cuts" as const },
+  { id: "interior-01", src: "/images/gallery/interior-01.jpg", alt: "Barbershop interior with vintage chairs", category: "Interior" as const },
+  { id: "interior-02", src: "/images/gallery/interior-02.jpg", alt: "Classic barber station and mirrors", category: "Interior" as const },
+  { id: "interior-03", src: "/images/gallery/interior-03.jpg", alt: "Shop ambiance and waiting area", category: "Interior" as const },
+  { id: "team-01", src: "/images/gallery/team-01.jpg", alt: "Barber at work on a client", category: "Team" as const },
+  { id: "team-02", src: "/images/gallery/team-02.jpg", alt: "Team member with clippers", category: "Team" as const },
+  { id: "team-03", src: "/images/gallery/team-03.jpg", alt: "Barber finishing a precision cut", category: "Team" as const },
+  { id: "cocktails-01", src: "/images/gallery/cocktails-01.jpg", alt: "Old Fashioned cocktail at the bar", category: "Cocktails" as const },
+  { id: "cocktails-02", src: "/images/gallery/cocktails-02.jpg", alt: "Signature cocktail being prepared", category: "Cocktails" as const },
+  { id: "cocktails-03", src: "/images/gallery/cocktails-03.jpg", alt: "Premium spirits selection", category: "Cocktails" as const },
+] as const;
