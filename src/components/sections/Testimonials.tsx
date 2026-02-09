@@ -123,11 +123,6 @@ export default function Testimonials() {
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              {/* Oversized decorative quote marks */}
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-primary-gold/8 text-[14rem] md:text-[20rem] font-heading leading-none select-none pointer-events-none">
-                &ldquo;
-              </div>
-
               <div className="relative min-h-[320px] md:min-h-[280px] flex items-center">
                 <AnimatePresence mode="wait" custom={direction}>
                   <motion.div

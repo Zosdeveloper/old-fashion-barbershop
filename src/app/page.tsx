@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SectionDivider variant="fade" />
       <Services />
       <SectionDivider variant="gold-line" />
       <Testimonials />
