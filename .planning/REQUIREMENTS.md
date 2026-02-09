@@ -107,10 +107,10 @@
 | SERV-01 | 3 | Complete |
 | SERV-02 | 3 | Complete |
 | SERV-03 | 3 | Complete |
-| GALL-01 | 4 | Pending |
-| GALL-02 | 4 | Pending |
-| GALL-03 | 4 | Pending |
-| GALL-04 | 4 | Pending |
+| GALL-01 | 4 | Complete |
+| GALL-02 | 4 | Complete |
+| GALL-03 | 4 | Complete |
+| GALL-04 | 4 | Complete |
 | TEAM-01 | 5 | Pending |
 | TEAM-02 | 5 | Pending |
 | FAQQ-01 | 5 | Pending |
