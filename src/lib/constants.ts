@@ -110,6 +110,8 @@ export const GALLERY_ITEMS = [
   { id: "cocktails-01", src: "/images/gallery/cocktails-01.jpg", alt: "Bourbon being poured into crystal Old Fashioned glass", category: "Cocktails" as const },
   { id: "cocktails-02", src: "/images/gallery/cocktails-02.jpg", alt: "Old Fashioned garnished with cherry on gold pick", category: "Cocktails" as const },
   { id: "cocktails-03", src: "/images/gallery/cocktails-03.jpg", alt: "Signature Old Fashioned being handed to a client", category: "Cocktails" as const },
+  { id: "interior-04", src: "/images/gallery/interior-04.jpg", alt: "Full shop interior with leather barber chairs and brick walls", category: "Interior" as const },
+  { id: "cocktails-04", src: "/images/gallery/cocktails-04.jpg", alt: "Client enjoying an Old Fashioned cocktail in the barber chair", category: "Cocktails" as const },
 ] as const;
 
 export const TEAM_MEMBERS = [
