@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/constants";
 import LenisProvider from "@/providers/LenisProvider";
 import { Navbar } from "@/components/navigation";
+import { Footer } from "@/components/sections";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -47,6 +48,7 @@ export default function RootLayout({
         <LenisProvider>
           <Navbar />
           <main>{children}</main>
+          <Footer />
         </LenisProvider>
       </body>
     </html>

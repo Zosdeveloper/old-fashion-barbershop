@@ -115,3 +115,65 @@ export const GALLERY_ITEMS = [
   { id: "cocktails-02", src: "/images/gallery/cocktails-02.jpg", alt: "Signature cocktail being prepared", category: "Cocktails" as const },
   { id: "cocktails-03", src: "/images/gallery/cocktails-03.jpg", alt: "Premium spirits selection", category: "Cocktails" as const },
 ] as const;
+
+export const TEAM_MEMBERS = [
+  {
+    id: "marco",
+    name: "Marco Rossi",
+    role: "Owner & Master Barber",
+    bio: "With over 15 years behind the chair, Marco founded Old Fashion Barbershop to bring authentic craftsmanship back to Naples. His signature fades and hot towel shaves have earned a loyal following.",
+    image: "/images/team/barber-01.jpg",
+  },
+  {
+    id: "daniel",
+    name: "Daniel Cruz",
+    role: "Senior Barber",
+    bio: "A precision artist with an eye for detail, Daniel specializes in modern fades and intricate line work. His steady hand and creative vision keep clients coming back.",
+    image: "/images/team/barber-02.jpg",
+  },
+  {
+    id: "james",
+    name: "James Turner",
+    role: "Barber & Stylist",
+    bio: "James brings a fresh perspective to classic barbering. Trained in both traditional and contemporary techniques, he has a talent for finding the perfect cut for every face shape.",
+    image: "/images/team/barber-03.jpg",
+  },
+  {
+    id: "tony",
+    name: "Tony Valentino",
+    role: "Barber",
+    bio: "Tony grew up in barbershops and carries that old-school passion into every service. Known for his meticulous beard shaping and relaxed chair-side manner.",
+    image: "/images/team/barber-04.jpg",
+  },
+] as const;
+
+export const FAQ_ITEMS = [
+  {
+    question: "Do you accept walk-ins?",
+    answer: "Yes, we welcome walk-ins during business hours. However, we recommend booking through Booksy to guarantee your preferred time slot, especially on Saturdays.",
+  },
+  {
+    question: "What should I expect on my first visit?",
+    answer: "Your barber will start with a one-on-one consultation to understand your style and preferences. From there, you'll receive a precision cut tailored to you, finished with styling and grooming tips. And yes — you'll be offered our signature Old Fashioned cocktail.",
+  },
+  {
+    question: "Is parking available?",
+    answer: "Street parking is available along 1st Avenue South and surrounding blocks. There is also a public parking garage within a short walk of the shop.",
+  },
+  {
+    question: "How long does a typical appointment take?",
+    answer: "A standard haircut takes approximately 30-45 minutes. Services like our Hot Towel Shave or combination packages may take up to an hour. We never rush — quality takes the time it takes.",
+  },
+  {
+    question: "Do you serve alcohol?",
+    answer: "We offer a complimentary signature Old Fashioned cocktail to clients during their service. It's part of the premium experience that sets us apart.",
+  },
+  {
+    question: "What forms of payment do you accept?",
+    answer: "We accept all major credit and debit cards, Apple Pay, Google Pay, and cash. Tips can be added to card payments or given directly to your barber.",
+  },
+  {
+    question: "Can I request a specific barber?",
+    answer: "Absolutely. When booking through Booksy, you can select your preferred barber. If you're a walk-in, we'll do our best to accommodate your request based on availability.",
+  },
+] as const;
