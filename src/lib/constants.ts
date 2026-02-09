@@ -100,20 +100,20 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
 ];
 
 export const GALLERY_ITEMS = [
-  { id: "cuts-01", src: "/images/gallery/cuts-01.jpg", alt: "Classic scissor cut with textured finish", category: "Cuts" as const },
-  { id: "cuts-02", src: "/images/gallery/cuts-02.jpg", alt: "Sharp skin fade with hard part", category: "Cuts" as const },
-  { id: "cuts-03", src: "/images/gallery/cuts-03.jpg", alt: "Mid fade with styled top", category: "Cuts" as const },
-  { id: "cuts-04", src: "/images/gallery/cuts-04.jpg", alt: "Low taper fade with beard lineup", category: "Cuts" as const },
-  { id: "cuts-05", src: "/images/gallery/cuts-05.jpg", alt: "Precision buzz cut with edge work", category: "Cuts" as const },
-  { id: "interior-01", src: "/images/gallery/interior-01.jpg", alt: "Barbershop interior with vintage chairs", category: "Interior" as const },
-  { id: "interior-02", src: "/images/gallery/interior-02.jpg", alt: "Classic barber station and mirrors", category: "Interior" as const },
-  { id: "interior-03", src: "/images/gallery/interior-03.jpg", alt: "Shop ambiance and waiting area", category: "Interior" as const },
-  { id: "team-01", src: "/images/gallery/team-01.jpg", alt: "Barber at work on a client", category: "Team" as const },
-  { id: "team-02", src: "/images/gallery/team-02.jpg", alt: "Team member with clippers", category: "Team" as const },
-  { id: "team-03", src: "/images/gallery/team-03.jpg", alt: "Barber finishing a precision cut", category: "Team" as const },
-  { id: "cocktails-01", src: "/images/gallery/cocktails-01.jpg", alt: "Old Fashioned cocktail at the bar", category: "Cocktails" as const },
-  { id: "cocktails-02", src: "/images/gallery/cocktails-02.jpg", alt: "Signature cocktail being prepared", category: "Cocktails" as const },
-  { id: "cocktails-03", src: "/images/gallery/cocktails-03.jpg", alt: "Premium spirits selection", category: "Cocktails" as const },
+  { id: "cuts-01", src: "/images/gallery/cuts-01.jpg", alt: "Fresh fade with styled top on young client", category: "Cuts" as const },
+  { id: "cuts-02", src: "/images/gallery/cuts-02.jpg", alt: "Clean skin fade side profile", category: "Cuts" as const },
+  { id: "cuts-03", src: "/images/gallery/cuts-03.jpg", alt: "Precision fade with textured finish", category: "Cuts" as const },
+  { id: "cuts-04", src: "/images/gallery/cuts-04.jpg", alt: "Curly hair detail work from behind", category: "Cuts" as const },
+  { id: "cuts-05", src: "/images/gallery/cuts-05.jpg", alt: "Client portrait after fresh haircut", category: "Cuts" as const },
+  { id: "interior-01", src: "/images/gallery/interior-01.jpg", alt: "Barber working at the station with brick wall backdrop", category: "Interior" as const },
+  { id: "interior-02", src: "/images/gallery/interior-02.jpg", alt: "Overhead view of the barbershop floor", category: "Interior" as const },
+  { id: "interior-03", src: "/images/gallery/interior-03.jpg", alt: "Barber and client at the chair with ring light", category: "Interior" as const },
+  { id: "team-01", src: "/images/gallery/team-01.jpg", alt: "Barber shaping a client's hairline", category: "Team" as const },
+  { id: "team-02", src: "/images/gallery/team-02.jpg", alt: "Owner and happy client posing together", category: "Team" as const },
+  { id: "team-03", src: "/images/gallery/team-03.jpg", alt: "Barber trimming client's beard in the chair", category: "Team" as const },
+  { id: "cocktails-01", src: "/images/gallery/cocktails-01.jpg", alt: "Bourbon being poured into crystal Old Fashioned glass", category: "Cocktails" as const },
+  { id: "cocktails-02", src: "/images/gallery/cocktails-02.jpg", alt: "Old Fashioned garnished with cherry on gold pick", category: "Cocktails" as const },
+  { id: "cocktails-03", src: "/images/gallery/cocktails-03.jpg", alt: "Signature Old Fashioned being handed to a client", category: "Cocktails" as const },
 ] as const;
 
 export const TEAM_MEMBERS = [

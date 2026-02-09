@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { NAV_ITEMS, SITE_CONFIG, BOOKSY_URL } from "@/lib/constants";
 import Container from "@/components/ui/Container";
@@ -50,13 +51,23 @@ export default function Navbar() {
             {/* Logo */}
             <a
               href="#hero"
-              className="relative z-50 font-heading text-xl font-bold text-white hover:text-primary-gold transition-colors duration-300"
+              className="relative z-50 flex items-center gap-3 hover:opacity-90 transition-opacity duration-300"
               onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
-              {SITE_CONFIG.name}
+              <Image
+                src="/images/logo.png"
+                alt={SITE_CONFIG.name}
+                width={44}
+                height={44}
+                className="w-11 h-11"
+                priority
+              />
+              <span className="font-heading text-xl font-bold text-white hidden sm:inline">
+                {SITE_CONFIG.name}
+              </span>
             </a>
 
             {/* Desktop Navigation */}
