@@ -42,47 +42,76 @@ export const BOOKSY_URL =
   process.env.NEXT_PUBLIC_BOOKSY_URL ||
   "https://booksy.com/en-us/dl/placeholder";
 
+export const HERO_IMAGES = [
+  { src: "/images/hero/hero-barbershop.jpg", alt: "Old Fashion Barbershop interior" },
+  { src: "/images/gallery/interior-01.jpg", alt: "Barber working at the station" },
+  { src: "/images/gallery/cuts-01.jpg", alt: "Fresh fade with styled top" },
+  { src: "/images/gallery/cocktails-02.jpg", alt: "Signature Old Fashioned cocktail" },
+  { src: "/images/gallery/team-01.jpg", alt: "Barber shaping a client's hairline" },
+] as const;
+
 export const SERVICES = [
   {
-    id: "classic-haircut",
-    title: "Classic Haircut",
-    description:
-      "Every cut begins with a one-on-one consultation and ends with a ritual of precision. We take the time to understand your style, sculpt every line by hand, and deliver a finish that speaks for itself.",
-    image: "/images/services/classic-haircut.jpg",
-    signature: false,
-  },
-  {
-    id: "fade-skin-fade",
-    title: "Fade / Skin Fade",
-    description:
-      "Seamless blending elevated to an art form. Our barbers master the gradient from skin to length with meticulous clipper control, delivering modern craftsmanship that turns heads.",
-    image: "/images/services/fade.jpg",
-    signature: false,
-  },
-  {
-    id: "line-work-details",
-    title: "Line Work & Details",
-    description:
-      "Architectural precision for the finishing touch. Sharp edges, clean partings, and razor-defined lines that frame your look with the kind of detail only a master barber can deliver.",
-    image: "/images/services/line-work.jpg",
-    signature: false,
-  },
-  {
-    id: "beard-trim-shaping",
-    title: "Beard Trim & Shaping",
-    description:
-      "Expert sculpting that transforms facial hair into a statement. We shape, taper, and refine your beard with surgical precision, creating clean lines that complement your bone structure.",
-    image: "/images/services/beard-trim.jpg",
-    signature: false,
-  },
-  {
-    id: "hot-towel-shave",
-    title: "Hot Towel Shave",
-    description:
-      "The ultimate sensory experience in men's grooming. Warm lather, steaming towels, and the steady hand of a straight razor gliding across your skin. This is relaxation refined into ritual — our signature service.",
+    id: "best-experience",
+    title: "Best Experience In Town",
+    description: "Step into the ultimate modern grooming experience. This all-inclusive service is our finest offering — a full transformation from head to jaw.",
     image: "/images/services/hot-towel-shave.jpg",
+    price: 120,
+    duration: "1h 20min",
     signature: true,
   },
+  {
+    id: "mens-haircut",
+    title: "Men's Haircut",
+    description: "Every service begins with a personalized consultation to ensure the perfect cut for your style, face shape, and lifestyle.",
+    image: "/images/services/classic-haircut.jpg",
+    price: 50,
+    duration: "30min",
+    signature: false,
+  },
+  {
+    id: "haircut-beard-trim",
+    title: "Men's Haircut & Beard Trim",
+    description: "A complete grooming service for the modern man. This includes a consultation, precision cut, and expert beard sculpting.",
+    image: "/images/services/beard-trim.jpg",
+    price: 70,
+    duration: "30min",
+    signature: false,
+  },
+  {
+    id: "haircut-hot-steam-shave",
+    title: "Haircut & Hot Steam Shave",
+    subtitle: "Premium",
+    description: "A signature experience every gentleman deserves. This service begins with a precision haircut and finishes with a luxurious hot steam shave.",
+    image: "/images/services/line-work.jpg",
+    price: 90,
+    duration: "1h",
+    signature: false,
+  },
+  {
+    id: "hot-steam-shave",
+    title: "Hot Steam Shave",
+    description: "Indulge in the ultimate grooming ritual. This service begins with a soothing hot towel treatment and finishes with a perfectly smooth shave.",
+    image: "/images/services/fade.jpg",
+    price: 50,
+    duration: "30min",
+    signature: false,
+  },
+  {
+    id: "kids-cut",
+    title: "Kid's Cut",
+    description: "A fun and comfortable grooming experience designed just for kids. Each young client gets the same attention to detail as our adult services.",
+    image: "/images/gallery/cuts-05.jpg",
+    price: 40,
+    duration: "30min",
+    signature: false,
+  },
+] as const;
+
+export const ADDON_SERVICES = [
+  { id: "ear-waxing", title: "Ear Waxing", price: 15, duration: "15min" },
+  { id: "nose-waxing", title: "Nose Waxing", price: 15, duration: "15min" },
+  { id: "hair-wash", title: "Hair Wash", price: 10, duration: "10min" },
 ] as const;
 
 export type GalleryCategory = "All" | "Cuts" | "Interior" | "Team" | "Cocktails";

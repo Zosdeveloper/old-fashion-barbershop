@@ -13,12 +13,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Container, Section, Button } from "@/components/ui";
 import AmbientGlow from "@/components/effects/AmbientGlow";
-import { SERVICES, BOOKSY_URL } from "@/lib/constants";
+import { SERVICES, ADDON_SERVICES, BOOKSY_URL } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
 /* ------------------------------------------------------------------ */
-/*  3D Tilt Card                                                       */
+/*  3D Tilt Service Card with Pricing                                  */
 /* ------------------------------------------------------------------ */
 
 function ServiceCard({
@@ -36,11 +36,11 @@ function ServiceCard({
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
-  const rotateX = useSpring(useTransform(mouseY, [0, 1], [8, -8]), {
+  const rotateX = useSpring(useTransform(mouseY, [0, 1], [6, -6]), {
     stiffness: 200,
     damping: 30,
   });
-  const rotateY = useSpring(useTransform(mouseX, [0, 1], [-8, 8]), {
+  const rotateY = useSpring(useTransform(mouseX, [0, 1], [-6, 6]), {
     stiffness: 200,
     damping: 30,
   });
@@ -67,11 +67,7 @@ function ServiceCard({
 
   const tiltStyle: MotionStyle = isTouch
     ? {}
-    : {
-        rotateX,
-        rotateY,
-        transformPerspective: 1000,
-      };
+    : { rotateX, rotateY, transformPerspective: 1000 };
 
   return (
     <motion.div
@@ -100,8 +96,6 @@ function ServiceCard({
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
-
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary-black-900 via-primary-black-900/40 to-transparent" />
 
         {/* Signature badge */}
@@ -112,23 +106,36 @@ function ServiceCard({
             </span>
           </div>
         )}
+
+        {/* Price badge */}
+        <div className="absolute top-4 right-4 md:top-6 md:right-6">
+          <span className="inline-block bg-primary-black-950/80 backdrop-blur-sm text-primary-gold px-3 py-1.5 text-sm font-heading font-bold rounded-sm border border-primary-gold/20">
+            ${service.price}
+          </span>
+        </div>
       </div>
 
       {/* Content */}
-      <div
-        className={`relative p-5 md:p-6 ${
-          isSignature ? "md:p-8" : ""
-        }`}
-      >
-        <h3
-          className={`font-heading font-bold text-white mb-2 ${
-            isSignature
-              ? "text-2xl md:text-3xl"
-              : "text-xl md:text-2xl"
-          }`}
-        >
-          {service.title}
-        </h3>
+      <div className={`relative p-5 md:p-6 ${isSignature ? "md:p-8" : ""}`}>
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <div>
+            <h3
+              className={`font-heading font-bold text-white ${
+                isSignature ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"
+              }`}
+            >
+              {service.title}
+            </h3>
+            {"subtitle" in service && service.subtitle && (
+              <span className="text-primary-gold font-body text-sm uppercase tracking-wider">
+                {service.subtitle}
+              </span>
+            )}
+          </div>
+          <span className="text-primary-black-500 font-body text-sm whitespace-nowrap mt-1">
+            {service.duration}
+          </span>
+        </div>
         <p
           className={`text-primary-black-300 font-body leading-relaxed mb-4 ${
             isSignature
@@ -154,7 +161,7 @@ function ServiceCard({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Services Section with GSAP scroll animations                       */
+/*  Services Section                                                   */
 /* ------------------------------------------------------------------ */
 
 export default function Services() {
@@ -165,12 +172,12 @@ export default function Services() {
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const signatureRef = useRef<HTMLDivElement>(null);
+  const addonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Header reveal
       if (headerRef.current) {
         gsap.fromTo(
           headerRef.current.children,
@@ -189,7 +196,6 @@ export default function Services() {
         );
       }
 
-      // Cards stagger reveal
       if (gridRef.current) {
         const cards = gridRef.current.querySelectorAll(".service-card");
         gsap.fromTo(
@@ -210,7 +216,6 @@ export default function Services() {
         );
       }
 
-      // Signature card special entrance
       if (signatureRef.current) {
         gsap.fromTo(
           signatureRef.current,
@@ -224,6 +229,23 @@ export default function Services() {
             scrollTrigger: {
               trigger: signatureRef.current,
               start: "top 85%",
+            },
+          }
+        );
+      }
+
+      if (addonsRef.current) {
+        gsap.fromTo(
+          addonsRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: addonsRef.current,
+              start: "top 90%",
             },
           }
         );
@@ -244,7 +266,7 @@ export default function Services() {
             Our Craft
           </p>
           <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
-            Services
+            Services & Pricing
           </h2>
           <p className="text-primary-black-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
             Every service is a ritual of precision, performed with intention
@@ -252,7 +274,18 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Asymmetric Grid */}
+        {/* Signature Service — Full Width */}
+        {signatureService && (
+          <div ref={signatureRef} className="mb-5">
+            <ServiceCard
+              service={signatureService}
+              isSignature
+              className="border border-primary-gold/20"
+            />
+          </div>
+        )}
+
+        {/* Standard Services Grid */}
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
           {/* Row 1: 7/5 split */}
           {standardServices[0] && (
@@ -278,16 +311,44 @@ export default function Services() {
             </div>
           )}
 
-          {/* Row 3: Full-width signature */}
-          {signatureService && (
-            <div ref={signatureRef} className="md:col-span-12">
-              <ServiceCard
-                service={signatureService}
-                isSignature
-                className="border border-primary-gold/20"
-              />
+          {/* Row 3: even split for remaining */}
+          {standardServices[4] && (
+            <div className={standardServices.length > 5 ? "md:col-span-6" : "md:col-span-12"}>
+              <ServiceCard service={standardServices[4]} className="h-full" />
             </div>
           )}
+        </div>
+
+        {/* Add-on Services */}
+        <div ref={addonsRef} className="mt-12 md:mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-primary-gold font-body text-sm uppercase tracking-[0.3em]">
+              Add-On Services
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            {ADDON_SERVICES.map((addon) => (
+              <a
+                key={addon.id}
+                href={BOOKSY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between px-6 py-4 bg-primary-black-900/50 border border-primary-black-800 rounded-sm hover:border-primary-gold/30 transition-colors duration-300"
+              >
+                <div>
+                  <p className="text-white font-heading text-base font-semibold group-hover:text-primary-gold transition-colors">
+                    {addon.title}
+                  </p>
+                  <p className="text-primary-black-500 font-body text-xs mt-0.5">
+                    {addon.duration}
+                  </p>
+                </div>
+                <span className="text-primary-gold font-heading text-lg font-bold">
+                  ${addon.price}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </Container>
     </Section>

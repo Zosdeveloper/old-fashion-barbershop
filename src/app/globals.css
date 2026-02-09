@@ -122,6 +122,16 @@
   }
 }
 
+/* Hero slideshow Ken Burns — uses CSS custom properties per-slide */
+.hero-ken-burns {
+  animation: heroKenBurns 6s ease-in-out forwards;
+}
+
+@keyframes heroKenBurns {
+  0% { transform: var(--kb-from); }
+  100% { transform: var(--kb-to); }
+}
+
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }
   10% { transform: translate(-5%, -10%); }
