@@ -1,5 +1,5 @@
 import { Container, Section } from "@/components/ui";
-import { Hero, About } from "@/components/sections";
+import { Hero, About, Services } from "@/components/sections";
 
 export default function Home() {
   return (
@@ -11,21 +11,7 @@ export default function Home() {
       <About />
 
       {/* Services Section */}
-      <Section id="services">
-        <Container>
-          <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-2">
-            What We Offer
-          </p>
-          <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-6">
-            Our Services
-          </h2>
-          <p className="text-primary-black-300 font-body text-lg max-w-3xl leading-relaxed">
-            From classic cuts to hot towel shaves, every service is performed with
-            precision and care. Full service cards will be added in a later phase.
-          </p>
-          <div className="h-64" aria-hidden="true" />
-        </Container>
-      </Section>
+      <Services />
 
       {/* Team Section */}
       <Section id="team" className="bg-primary-black-950">
