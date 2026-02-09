@@ -104,9 +104,9 @@
 | HERO-03 | 2 | Complete |
 | ABOU-01 | 2 | Complete |
 | ABOU-02 | 2 | Complete |
-| SERV-01 | 3 | Pending |
-| SERV-02 | 3 | Pending |
-| SERV-03 | 3 | Pending |
+| SERV-01 | 3 | Complete |
+| SERV-02 | 3 | Complete |
+| SERV-03 | 3 | Complete |
 | GALL-01 | 4 | Pending |
 | GALL-02 | 4 | Pending |
 | GALL-03 | 4 | Pending |
