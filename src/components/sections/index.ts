@@ -5,4 +5,5 @@ export { default as Team } from "./Team";
 export { default as Testimonials } from "./Testimonials";
 export { default as FAQ } from "./FAQ";
 export { default as Contact } from "./Contact";
+export { default as WhyUs } from "./WhyUs";
 export { default as Footer } from "./Footer";
