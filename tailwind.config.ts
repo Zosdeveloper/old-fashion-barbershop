@@ -42,7 +42,7 @@ const config: Config = {
       },
       fontFamily: {
         heading: ["var(--font-playfair)", "Georgia", "serif"],
-        body: ["var(--font-cormorant)", "Georgia", "serif"],
+        body: ["var(--font-outfit)", "system-ui", "sans-serif"],
       },
       spacing: {
         18: "4.5rem",

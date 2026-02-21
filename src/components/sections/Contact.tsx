@@ -105,32 +105,6 @@ export default function Contact() {
         </Container>
       </Section>
 
-      {/* Final CTA Section */}
-      <Section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-black-900 via-primary-black-950 to-primary-black-900" />
-        <Container className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center py-12"
-          >
-            <p className="text-primary-gold font-heading text-sm font-bold uppercase tracking-[0.3em] mb-3">
-              Your Chair Is Waiting
-            </p>
-            <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-4">
-              Become a Regular
-            </h2>
-            <p className="text-primary-black-300 font-body text-xl max-w-xl mx-auto mb-8 leading-relaxed">
-              Join the men who refuse to settle for ordinary. Reserve your spot today.
-            </p>
-            <Button href={BOOKSY_URL} size="lg">
-              Book Your Experience
-            </Button>
-          </motion.div>
-        </Container>
-      </Section>
     </>
   );
 }

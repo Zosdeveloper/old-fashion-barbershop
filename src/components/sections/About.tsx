@@ -91,7 +91,7 @@ export default function About() {
   }, []);
 
   return (
-    <Section id="about" className="bg-primary-black-950" ref={sectionRef}>
+    <Section id="about" className="bg-charcoal" ref={sectionRef}>
       <Container className="max-w-6xl">
         {/* Section Header */}
         <div className="about-header text-center mb-16">

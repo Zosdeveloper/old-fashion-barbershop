@@ -10,10 +10,10 @@ export default function Home() {
       <Services />
       <SectionDivider variant="gold-line" />
       <Testimonials />
-      <SectionDivider variant="fade" flip />
-      <FAQ />
       <SectionDivider variant="gold-line" />
       <Contact />
+      <SectionDivider variant="fade" flip />
+      <FAQ />
     </>
   );
 }

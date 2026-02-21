@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond } from "next/font/google";
+import { Playfair_Display, Outfit } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/constants";
 import LenisProvider from "@/providers/LenisProvider";
 import { Navbar } from "@/components/navigation";
@@ -14,10 +14,10 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const cormorant = Cormorant_Garamond({
+const outfit = Outfit({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-cormorant",
+  variable: "--font-outfit",
   weight: ["300", "400", "500", "600", "700"],
 });
 
@@ -74,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${outfit.variable}`}>
       <body>
         <JsonLd />
         <div className="grain-overlay" aria-hidden="true" />

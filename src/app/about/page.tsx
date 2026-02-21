@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { About, Team } from "@/components/sections";
+import { AboutHero, About, Team } from "@/components/sections";
 import SectionDivider from "@/components/ui/SectionDivider";
 
 export const metadata: Metadata = {
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="pt-24" />
+      <AboutHero />
+      <SectionDivider variant="gold-line" />
       <About />
       <SectionDivider variant="gold-line" />
       <Team />

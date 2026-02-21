@@ -13,35 +13,44 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
   href?: string;
 }
 
+/* Chamfered corner clip-path — matches the irregular shape theme */
+const CHAMFER = "polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px)";
+
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-primary-gold text-primary-black-900 hover:bg-primary-gold-400 font-bold shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_35px_rgba(212,175,55,0.5)]",
+    "bg-primary-gold text-primary-black-950 font-semibold hover:bg-primary-gold-400",
   outline:
-    "border-2 border-primary-gold text-primary-gold hover:bg-primary-gold hover:text-primary-black-900 font-bold shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]",
+    "bg-transparent text-primary-gold font-semibold border border-primary-gold/60 hover:bg-primary-gold hover:text-primary-black-950 hover:border-primary-gold",
   ghost:
-    "text-primary-gold hover:bg-primary-gold/10 font-bold",
+    "text-primary-gold hover:bg-primary-gold/10 font-semibold",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "px-5 py-2.5 text-sm",
-  md: "px-7 py-3.5 text-base",
-  lg: "px-10 py-4.5 text-lg",
+  sm: "px-6 py-2.5 text-xs",
+  md: "px-8 py-3.5 text-sm",
+  lg: "px-11 py-4 text-sm",
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", href, children, ...props }, ref) => {
+    const usesChamfer = variant !== "ghost";
+
     const classes = cn(
-      "inline-flex items-center justify-center rounded-sm transition-all duration-300 tracking-[0.15em] uppercase font-heading",
+      "inline-flex items-center justify-center transition-all duration-300 tracking-[0.2em] uppercase font-body",
+      usesChamfer ? "" : "rounded-sm",
       variantStyles[variant],
       sizeStyles[size],
       className
     );
+
+    const clipStyle = usesChamfer ? { clipPath: CHAMFER } : undefined;
 
     if (href) {
       return (
         <motion.a
           href={href}
           className={classes}
+          style={clipStyle}
           whileHover={{ scale: 1.03, y: -1 }}
           whileTap={{ scale: 0.97 }}
           target={href.startsWith("http") ? "_blank" : undefined}
@@ -56,6 +65,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <motion.button
         ref={ref}
         className={classes}
+        style={clipStyle}
         whileHover={{ scale: 1.03, y: -1 }}
         whileTap={{ scale: 0.97 }}
         {...props}
