@@ -93,6 +93,9 @@ function Lightbox({
 /*  Gallery Client                                                     */
 /* ------------------------------------------------------------------ */
 
+const BLUR_PLACEHOLDER =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQI12NgAAIABQABNjN9GQAAAABJRU5ErkJggg==";
+
 export default function GalleryClient() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -188,6 +191,8 @@ export default function GalleryClient() {
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 loading="lazy"
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER}
               />
             </div>
 

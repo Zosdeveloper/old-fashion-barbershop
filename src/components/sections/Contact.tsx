@@ -87,19 +87,27 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-full aspect-[4/3] rounded-sm overflow-hidden"
+              className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-primary-black-800"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.8!2d-81.7948!3d26.1420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s852+1st+Ave+S%2C+Naples%2C+FL+34102!5e0!3m2!1sen!2sus!4v1700000000000"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{
+                  border: 0,
+                  filter: "grayscale(1) invert(0.92) contrast(0.85)",
+                }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Old Fashion Barbershop location"
                 className="w-full h-full"
               />
+              {/* Gold corner accents */}
+              <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-primary-gold/40 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-primary-gold/40 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-primary-gold/40 pointer-events-none" />
+              <div className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-primary-gold/40 pointer-events-none" />
             </motion.div>
           </div>
         </Container>

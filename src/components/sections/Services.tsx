@@ -142,7 +142,7 @@ function ServiceCard({
         </p>
         <Button
           href={BOOKSY_URL}
-          variant={isSignature ? "primary" : "outline"}
+          variant="primary"
           size="sm"
         >
           Book Now
@@ -305,9 +305,9 @@ export default function Services() {
             </div>
           )}
 
-          {/* Row 3 */}
+          {/* Row 3: centered */}
           {standardServices[4] && (
-            <div className="md:col-span-12">
+            <div className="md:col-span-6 md:col-start-4">
               <ServiceCard service={standardServices[4]} className="h-full" />
             </div>
           )}

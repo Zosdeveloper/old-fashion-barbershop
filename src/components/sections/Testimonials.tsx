@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import { Container, Section } from "@/components/ui";
 import { TESTIMONIALS } from "@/lib/constants";
 
@@ -62,6 +62,15 @@ export default function Testimonials() {
       });
     },
     []
+  );
+
+  const handleDragEnd = useCallback(
+    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      const swipeThreshold = 50;
+      if (info.offset.x < -swipeThreshold) paginate(1);
+      else if (info.offset.x > swipeThreshold) paginate(-1);
+    },
+    [paginate]
   );
 
   useEffect(() => {
@@ -132,7 +141,11 @@ export default function Testimonials() {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    className="w-full px-4 md:px-20"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.15}
+                    onDragEnd={handleDragEnd}
+                    className="w-full px-4 md:px-20 cursor-grab active:cursor-grabbing"
                   >
                     <div className="text-center">
                       <StarRating rating={testimonial.rating} />
