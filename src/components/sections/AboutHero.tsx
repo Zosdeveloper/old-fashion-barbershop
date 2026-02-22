@@ -9,7 +9,7 @@ const fadeUp = {
   visible: (delay: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 
@@ -18,7 +18,7 @@ const imgReveal = {
   visible: (delay: number) => ({
     opacity: 1,
     scale: 1,
-    transition: { duration: 1.2, delay, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 1.2, delay, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 
@@ -182,7 +182,7 @@ export default function AboutHero() {
             animate="visible"
           >
             <Image
-              src="/images/hero/hero-cocktail.jpg"
+              src="/images/about/cocktail-handoff.jpg"
               alt="Signature Old Fashioned cocktail being crafted"
               fill
               sizes="(max-width: 1280px) 25vw, 300px"
@@ -346,7 +346,7 @@ export default function AboutHero() {
             animate="visible"
           >
             <Image
-              src="/images/hero/hero-cocktail.jpg"
+              src="/images/about/cocktail-handoff.jpg"
               alt="Signature Old Fashioned cocktail"
               fill
               sizes="50vw"

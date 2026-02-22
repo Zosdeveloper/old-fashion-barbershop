@@ -135,15 +135,17 @@ export default function Hero() {
             <span className="block w-12 h-px bg-primary-gold/50" />
           </motion.div>
 
-          <motion.h1
+          <motion.p
             custom={0.2}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             className="text-display-md md:text-display-lg lg:text-[5.5rem] lg:leading-[1.05] font-heading font-bold text-white mb-6 tracking-tight"
+            role="heading"
+            aria-level={2}
           >
             {SITE_CONFIG.name}
-          </motion.h1>
+          </motion.p>
 
           <motion.p
             custom={0.4}
@@ -163,10 +165,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button href={BOOKSY_URL} variant="primary" size="lg">
-              Book Your Experience
-            </Button>
-            <Button href="/about" variant="outline" size="lg">
-              Our Story
+              Book Now
             </Button>
           </motion.div>
         </Container>

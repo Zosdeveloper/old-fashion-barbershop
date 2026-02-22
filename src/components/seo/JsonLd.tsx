@@ -1,6 +1,17 @@
-import { SITE_CONFIG, BUSINESS_INFO, FAQ_ITEMS } from "@/lib/constants";
+import {
+  SITE_CONFIG,
+  BUSINESS_INFO,
+  SERVICES,
+  ADDON_SERVICES,
+  TESTIMONIALS,
+  FAQ_ITEMS,
+} from "@/lib/constants";
 
 function LocalBusinessSchema() {
+  const reviewCount = TESTIMONIALS.length;
+  const avgRating =
+    TESTIMONIALS.reduce((sum, t) => sum + t.rating, 0) / reviewCount;
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "BarberShop",
@@ -26,6 +37,23 @@ function LocalBusinessSchema() {
       "@type": "City",
       name: area,
     })),
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: avgRating.toFixed(1),
+      reviewCount,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    review: TESTIMONIALS.map((t) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: t.rating,
+        bestRating: 5,
+      },
+      author: { "@type": "Person", name: t.name },
+      reviewBody: t.quote,
+    })),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -50,47 +78,21 @@ function LocalBusinessSchema() {
       "@type": "OfferCatalog",
       name: "Barbershop Services",
       itemListElement: [
-        {
+        ...SERVICES.map((s) => ({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Classic Haircut",
-            description: "Precision haircut with consultation and styling.",
+            name: s.title,
+            description: s.description,
           },
-        },
-        {
+        })),
+        ...ADDON_SERVICES.map((s) => ({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Fade / Skin Fade",
-            description: "Seamless gradient blending from skin to length.",
+            name: s.title,
           },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Line Work & Details",
-            description: "Sharp edges, clean partings, and razor-defined lines.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Beard Trim & Shaping",
-            description: "Expert beard sculpting with clean lines and tapering.",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Hot Towel Shave",
-            description:
-              "Full sensory straight razor shave with hot towels and premium lather.",
-          },
-        },
+        })),
       ],
     },
     image: `${SITE_CONFIG.url}/images/hero/hero-barbershop.jpg`,
@@ -128,11 +130,34 @@ function FAQSchema() {
   );
 }
 
+function WebSiteSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+    description: SITE_CONFIG.description,
+    publisher: {
+      "@type": "Organization",
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export default function JsonLd() {
   return (
     <>
       <LocalBusinessSchema />
       <FAQSchema />
+      <WebSiteSchema />
     </>
   );
 }

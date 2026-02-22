@@ -6,11 +6,21 @@ export const metadata: Metadata = {
   title: "Gallery",
   description:
     "Browse our latest cuts, fades, beard work, and shop photos at Old Fashion Barbershop in Naples, FL. See the craftsmanship before you book.",
+  alternates: {
+    canonical: "/gallery",
+  },
   openGraph: {
     title: "Gallery | Old Fashion Barbershop",
     description:
       "Browse our latest cuts, fades, beard work, and shop photos at Old Fashion Barbershop in Naples, FL.",
-    images: ["/images/hero/hero-barbershop.jpg"],
+    images: [
+      {
+        url: "/images/hero/hero-barbershop.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Old Fashion Barbershop Gallery — Cuts, Fades & Craft",
+      },
+    ],
   },
 };
 

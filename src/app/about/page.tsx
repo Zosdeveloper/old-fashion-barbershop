@@ -6,11 +6,21 @@ export const metadata: Metadata = {
   title: "About Us & Our Team",
   description:
     "Meet the master barbers behind Old Fashion Barbershop in Naples, FL. Learn our story, our craft, and the team dedicated to premium grooming.",
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About Us & Our Team | Old Fashion Barbershop",
     description:
       "Meet the master barbers behind Old Fashion Barbershop in Naples, FL. Learn our story and the team dedicated to premium grooming.",
-    images: ["/images/team/barber-01.jpg"],
+    images: [
+      {
+        url: "/images/hero/hero-barbershop.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Old Fashion Barbershop — Premium Barbershop in Naples, FL",
+      },
+    ],
   },
 };
 
