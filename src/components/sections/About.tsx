@@ -9,13 +9,12 @@ import { Container, Section } from "@/components/ui";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Header
       gsap.fromTo(
         ".about-header > *",
         { opacity: 0, y: 40 },
@@ -29,7 +28,6 @@ export default function About() {
         }
       );
 
-      // Two-column text — left slides from left, right from right
       gsap.fromTo(
         ".about-col-left",
         { opacity: 0, x: -40 },
@@ -55,7 +53,6 @@ export default function About() {
         }
       );
 
-      // Cocktail feature — image parallax
       gsap.fromTo(
         ".about-cocktail-image",
         { y: 40, scale: 1.05 },
@@ -72,7 +69,6 @@ export default function About() {
         }
       );
 
-      // Cocktail feature — text reveal
       gsap.fromTo(
         ".about-cocktail-text > *",
         { opacity: 0, y: 30 },
@@ -91,62 +87,65 @@ export default function About() {
   }, []);
 
   return (
-    <Section id="about" className="bg-charcoal" ref={sectionRef}>
-      <Container className="max-w-6xl">
-        {/* Section Header */}
-        <div className="about-header text-center mb-16">
-          <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-3">
-            Our Story
-          </p>
-          <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-6">
-            Craftsmanship Meets Tradition
-          </h2>
-          <p className="text-primary-black-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
-            Where precision grooming and old-world hospitality create an
-            experience beyond the chair.
-          </p>
-        </div>
-
-        {/* Two-Column Content */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-20">
-          <div className="about-col-left space-y-6 text-primary-black-300 font-body leading-relaxed">
-            <p className="text-lg">
-              At Old Fashion Barbershop, we believe grooming is an art form.
-              Every cut, every shave is performed with meticulous attention to
-              detail and respect for traditional barbering techniques passed
-              down through generations.
+    <div ref={sectionRef}>
+      {/* ── Craftsmanship Meets Tradition — Cinematic Light Leak ── */}
+      <section id="about" className="light-leak bg-charcoal py-section lg:py-section-lg">
+        <Container className="max-w-6xl relative z-10">
+          <div className="about-header text-center mb-16">
+            <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-3">
+              Our Story
             </p>
-            <p>
-              Located in the heart of Naples, we serve discerning gentlemen
-              who appreciate quality, precision, and an experience that goes
-              beyond the chair. Our barbers bring decades of combined
-              experience, trained in classic methods and committed to
-              continuous refinement of their craft.
+            <h2 className="text-display-sm md:text-display-md font-heading font-bold text-white mb-6">
+              Craftsmanship Meets Tradition
+            </h2>
+            <p className="text-primary-black-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
+              Where precision grooming and old-world hospitality create an
+              experience beyond the chair.
             </p>
           </div>
 
-          <div className="about-col-right space-y-6 text-primary-black-300 font-body leading-relaxed">
-            <p>
-              Our commitment extends beyond technique. Each visit includes
-              complimentary consultations, premium grooming products, and hot
-              towel treatments that elevate the entire experience. We take the
-              time to understand your style, lifestyle, and preferences —
-              because the details matter.
-            </p>
-            <p className="text-white font-semibold text-lg">
-              This isn&apos;t just a haircut. This is where men refine their
-              presence.
-            </p>
-          </div>
-        </div>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+            <div className="about-col-left space-y-6 text-primary-black-300 font-body leading-relaxed">
+              <p className="text-lg">
+                At Old Fashion Barbershop, we believe grooming is an art form.
+                Every cut, every shave is performed with meticulous attention to
+                detail and respect for traditional barbering techniques passed
+                down through generations.
+              </p>
+              <p>
+                Located in the heart of Naples, we serve discerning gentlemen
+                who appreciate quality, precision, and an experience that goes
+                beyond the chair. Our barbers bring decades of combined
+                experience, trained in classic methods and committed to
+                continuous refinement of their craft.
+              </p>
+            </div>
 
-        {/* Signature Old Fashioned Feature */}
-        <div className="about-cocktail border-t border-primary-gold/20 pt-16">
+            <div className="about-col-right space-y-6 text-primary-black-300 font-body leading-relaxed">
+              <p>
+                Our commitment extends beyond technique. Each visit includes
+                complimentary consultations, premium grooming products, and hot
+                towel treatments that elevate the entire experience. We take the
+                time to understand your style, lifestyle, and preferences —
+                because the details matter.
+              </p>
+              <p className="text-white font-semibold text-lg">
+                This isn&apos;t just a haircut. This is where men refine their
+                presence.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Hand-Crafted Old Fashioned — Amber Grain Wash ── */}
+      <section className="about-cocktail amber-wash py-section lg:py-section-lg">
+        <Container className="max-w-6xl relative z-10">
           <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
             <div className="md:col-span-2">
               <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
                 <Image
-                  src="/images/about/signature-cocktail.jpg"
+                  src="/images/hero/hero-cocktail.jpg"
                   alt="Hand-crafted Old Fashioned cocktail at Old Fashion Barbershop"
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"
@@ -179,8 +178,8 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-      </Container>
-    </Section>
+        </Container>
+      </section>
+    </div>
   );
 }

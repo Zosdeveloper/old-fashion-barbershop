@@ -1,10 +1,8 @@
-import Image from "next/image";
 import {
   SITE_CONFIG,
   BUSINESS_INFO,
   SOCIAL_LINKS,
   NAV_ITEMS,
-  BOOKSY_URL,
 } from "@/lib/constants";
 
 export default function Footer() {
@@ -28,73 +26,6 @@ export default function Footer() {
         }}
         aria-hidden="true"
       />
-
-      {/* ═══════════════════════════════════════════════════
-          BRAND MONUMENT — The hero moment of the footer
-          ═══════════════════════════════════════════════════ */}
-      <div className="relative px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center">
-        {/* Faint radial glow behind logo */}
-        <div
-          className="absolute top-12 left-1/2 -translate-x-1/2 rounded-full pointer-events-none"
-          style={{
-            width: "280px",
-            height: "280px",
-            background:
-              "radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 70%)",
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative">
-          <Image
-            src="/images/logo.png"
-            alt={SITE_CONFIG.name}
-            width={72}
-            height={69}
-            className="mx-auto mb-6"
-            style={{ width: "72px", height: "auto" }}
-          />
-
-          <h2
-            className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
-            style={{ letterSpacing: "-0.01em" }}
-          >
-            {SITE_CONFIG.name}
-          </h2>
-
-          <p
-            className="font-body text-primary-gold/70 text-sm uppercase mb-10"
-            style={{ letterSpacing: "0.3em" }}
-          >
-            {SITE_CONFIG.tagline}
-          </p>
-
-          <a
-            href={BOOKSY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-10 py-4 border border-primary-gold text-primary-gold font-body text-sm uppercase gold-glow transition-all duration-300 hover:bg-primary-gold hover:text-primary-black-950"
-            style={{ letterSpacing: "0.2em" }}
-          >
-            Reserve Your Chair
-          </a>
-        </div>
-      </div>
-
-      {/* ─── Ornamental divider ─── */}
-      <div className="flex items-center justify-center gap-4 px-8" aria-hidden="true">
-        <div className="flex-1 h-px bg-gradient-to-r from-transparent to-primary-gold/20" />
-        <div
-          className="w-1.5 h-1.5 rotate-45 border border-primary-gold/40"
-        />
-        <div
-          className="w-1 h-1 rotate-45 bg-primary-gold/30"
-        />
-        <div
-          className="w-1.5 h-1.5 rotate-45 border border-primary-gold/40"
-        />
-        <div className="flex-1 h-px bg-gradient-to-l from-transparent to-primary-gold/20" />
-      </div>
 
       {/* ═══════════════════════════════════════════════════
           INFO GRID — Editorial three-column layout

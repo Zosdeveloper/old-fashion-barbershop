@@ -51,11 +51,11 @@ export const HERO_IMAGES = [
 
 export const SERVICES = [
   {
-    id: "best-experience",
-    title: "Best Experience In Town",
-    description: "An extended session combining premium grooming, styling, and complete relaxation. Includes haircut, beard work, hot towel treatments, and the attention to detail you deserve. This is for men who refuse to settle for ordinary.",
-    image: "/images/services/hot-towel-shave.jpg",
-    duration: "1h 20min",
+    id: "kids-cut",
+    title: "Kid's Cut",
+    description: "A classic introduction to grooming, delivered with patience and precision. We make it comfortable, professional, and fun. Teaching the next generation what quality grooming looks like.",
+    image: "/images/services/kids-cut.jpg",
+    duration: "30min",
     signature: false,
   },
   {
@@ -92,11 +92,11 @@ export const SERVICES = [
     signature: false,
   },
   {
-    id: "kids-cut",
-    title: "Kid's Cut",
-    description: "A classic introduction to grooming, delivered with patience and precision. We make it comfortable, professional, and fun. Teaching the next generation what quality grooming looks like.",
-    image: "/images/gallery/cuts-05.jpg",
-    duration: "30min",
+    id: "best-experience",
+    title: "Best Experience In Town",
+    description: "An extended session combining premium grooming, styling, and complete relaxation. Includes haircut, beard work, hot towel treatments, and the attention to detail you deserve. This is for men who refuse to settle for ordinary.",
+    image: "/images/services/hot-towel-shave.jpg",
+    duration: "1h 20min",
     signature: false,
   },
 ] as const;
