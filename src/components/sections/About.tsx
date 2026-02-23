@@ -182,14 +182,6 @@ export default function About() {
         </Container>
       </section>
 
-      {/* ── Subtle divider between sections ── */}
-      <div
-        className="relative mx-auto max-w-6xl px-4"
-        style={{ zIndex: 5 }}
-      >
-        <div className="h-px bg-gradient-to-r from-transparent via-primary-gold/25 to-transparent" />
-      </div>
-
       {/* ── Hand-Crafted Old Fashioned ── */}
       <section className="about-cocktail relative py-section lg:py-section-lg" style={{ zIndex: 5 }}>
         <Container className="max-w-6xl relative">
