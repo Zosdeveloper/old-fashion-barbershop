@@ -17,39 +17,39 @@ export default function About() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ".about-header > *",
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ".about-header", start: "top 85%" },
+          duration: 1,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: { trigger: ".about-header", start: "top 95%" },
         }
       );
 
       gsap.fromTo(
         ".about-col-left",
-        { opacity: 0, x: -40 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
-          x: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ".about-col-left", start: "top 85%" },
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: { trigger: ".about-col-left", start: "top 95%" },
         }
       );
 
       gsap.fromTo(
         ".about-col-right",
-        { opacity: 0, x: 40 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
-          x: 0,
-          duration: 0.8,
-          delay: 0.15,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ".about-col-right", start: "top 85%" },
+          y: 0,
+          duration: 1.2,
+          delay: 0.25,
+          ease: "power2.out",
+          scrollTrigger: { trigger: ".about-col-right", start: "top 95%" },
         }
       );
 
@@ -71,14 +71,14 @@ export default function About() {
 
       gsap.fromTo(
         ".about-cocktail-text > *",
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 25 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power3.out",
-          scrollTrigger: { trigger: ".about-cocktail-text", start: "top 85%" },
+          duration: 1,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: { trigger: ".about-cocktail-text", start: "top 95%" },
         }
       );
     }, sectionRef);
