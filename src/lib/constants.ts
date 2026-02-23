@@ -40,7 +40,7 @@ export const SOCIAL_LINKS = {
 
 export const BOOKSY_URL =
   process.env.NEXT_PUBLIC_BOOKSY_URL ||
-  "https://booksy.com/en-us/dl/placeholder";
+  "https://booksy.com/en-us/653477_oldfashion-barbershop_barber-shop_15685_naples";
 
 export const HERO_IMAGES = [
   { src: "/images/hero/hero-beard-trim.jpg", alt: "Master barber trimming a client's beard" },
@@ -138,29 +138,29 @@ export const GALLERY_ITEMS = [
 
 export const TEAM_MEMBERS = [
   {
-    id: "marco",
-    name: "Marco Rossi",
+    id: "nenad",
+    name: "Nenad Niko Mitrovic",
     role: "Owner & Master Barber",
     bio: "With over 15 years behind the chair, Marco founded Old Fashion Barbershop to bring authentic craftsmanship back to Naples. His signature fades and hot towel shaves have earned a loyal following.",
     image: "/images/team/barber-01.jpg",
   },
   {
-    id: "daniel",
-    name: "Daniel Cruz",
+    id: "maxwell",
+    name: "Maxwell Max Roman",
     role: "Senior Barber",
     bio: "A precision artist with an eye for detail, Daniel specializes in modern fades and intricate line work. His steady hand and creative vision keep clients coming back.",
     image: "/images/team/barber-02.jpg",
   },
   {
-    id: "james",
-    name: "James Turner",
+    id: "emilio",
+    name: "Emilio Cruz",
     role: "Barber & Stylist",
     bio: "James brings a fresh perspective to classic barbering. Trained in both traditional and contemporary techniques, he has a talent for finding the perfect cut for every face shape.",
     image: "/images/team/barber-03.jpg",
   },
   {
-    id: "tony",
-    name: "Tony Valentino",
+    id: "amar",
+    name: "Amar Hot",
     role: "Barber",
     bio: "Tony grew up in barbershops and carries that old-school passion into every service. Known for his meticulous beard shaping and relaxed chair-side manner.",
     image: "/images/team/barber-04.jpg",
@@ -187,7 +187,7 @@ export const TESTIMONIALS = [
   {
     id: "t3",
     quote:
-      "Walked in without an appointment and they fit me right in. Daniel gave me the best fade I've ever had. The vibe is incredible — brick walls, great music, and top-shelf cocktails.",
+      "Walked in without an appointment and they fit me right in. Maxwell gave me the best fade I've ever had. The vibe is incredible — brick walls, great music, and top-shelf cocktails.",
     name: "James L.",
     title: "First-Time Client",
     rating: 5,

@@ -91,7 +91,7 @@ export default function Testimonials() {
             className="text-center mb-10"
           >
             <span className="inline-block text-primary-gold font-body text-sm uppercase tracking-[0.4em]">
-              344 Five-Star Reviews
+              483 Five-Star Reviews
             </span>
           </motion.div>
 
