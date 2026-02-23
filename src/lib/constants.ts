@@ -39,7 +39,7 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const GOOGLE_REVIEWS_URL =
-  "https://www.google.com/maps/place/OldFashion+Barbershop/data=!4m7!3m6!1s0x88dae12fcb0b0001:0x0!8m2!3d26.142!4d-81.7948!16s";
+  "https://maps.app.goo.gl/fMmbtTDaZR3curwW9";
 
 export const BOOKSY_URL =
   process.env.NEXT_PUBLIC_BOOKSY_URL ||
