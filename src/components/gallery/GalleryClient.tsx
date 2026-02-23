@@ -113,9 +113,7 @@ function Lightbox({
           sizes="90vw"
           priority
         />
-        <p className="absolute bottom-0 left-0 right-0 text-center text-white/60 text-sm py-3 bg-gradient-to-t from-black/60 to-transparent">
-          {item.alt}
-        </p>
+        <p className="sr-only">{item.alt}</p>
       </motion.div>
     </motion.div>
   );
@@ -239,13 +237,8 @@ export default function GalleryClient() {
               />
             </div>
 
-            {/* Hover overlay with depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-5">
-              <div>
-                <p className="text-white text-sm font-body font-medium">{item.alt}</p>
-                <p className="text-primary-gold text-xs font-body uppercase tracking-wider mt-1">{item.category}</p>
-              </div>
-            </div>
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
 
             {/* Gold border accent on hover */}
             <div className="absolute inset-0 rounded-sm border border-transparent group-hover:border-primary-gold/20 transition-colors duration-500 pointer-events-none" />
