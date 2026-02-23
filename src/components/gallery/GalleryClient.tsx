@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GALLERY_ITEMS, GALLERY_CATEGORIES, type GalleryCategory } from "@/lib/constants";
+import { useScrollLock } from "@/hooks/useScrollLock";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,8 +27,39 @@ function Lightbox({
   onPrev: () => void;
   onNext: () => void;
 }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const focusable = el.querySelectorAll<HTMLElement>(
+      'button, [href], [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    first?.focus();
+
+    const trap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    };
+    el.addEventListener("keydown", trap);
+    return () => el.removeEventListener("keydown", trap);
+  }, []);
+
   return (
     <motion.div
+      ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Viewing photo: ${item.alt}`}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -116,6 +148,8 @@ export default function GalleryClient() {
     setLightboxIndex((prev) => (prev !== null ? (prev - 1 + filtered.length) % filtered.length : null));
   }, [filtered.length]);
 
+  useScrollLock(lightboxIndex !== null);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
@@ -181,6 +215,15 @@ export default function GalleryClient() {
             key={item.id}
             className="gallery-item break-inside-avoid group cursor-pointer relative overflow-hidden rounded-sm transition-all duration-500 hover:shadow-[0_8px_30px_rgba(212,175,55,0.12)] hover:-translate-y-1"
             onClick={() => openLightbox(index)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openLightbox(index);
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label={`View photo: ${item.alt}`}
           >
             <div className="relative aspect-[4/5] sm:aspect-auto overflow-hidden">
               <Image
