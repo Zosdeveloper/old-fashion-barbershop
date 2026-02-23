@@ -38,6 +38,9 @@ export const SOCIAL_LINKS = {
   instagram: "https://instagram.com/oldfashionbarbershop",
 } as const;
 
+export const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/maps/place/OldFashion+Barbershop/data=!4m7!3m6!1s0x88dae12fcb0b0001:0x0!8m2!3d26.142!4d-81.7948!16s";
+
 export const BOOKSY_URL =
   process.env.NEXT_PUBLIC_BOOKSY_URL ||
   "https://booksy.com/en-us/653477_oldfashion-barbershop_barber-shop_15685_naples";
@@ -171,41 +174,57 @@ export const TESTIMONIALS = [
   {
     id: "t1",
     quote:
-      "Old Fashioned isn't just a barbershop — it's where I go to reset. The attention to detail is unmatched and the Old Fashioned cocktail is the cherry on top.",
-    name: "Michael R.",
-    title: "Regular Client",
+      "This is probably one of the best barbershops in Naples. Niko, Max and the rest of his staff are very kind, nice and professional. It's a real fun place to get your haircut. And if you have time, Niko does an amazing shave. A++",
+    name: "Booksy Review",
+    title: "Verified Client",
     rating: 5,
   },
   {
     id: "t2",
     quote:
-      "Finally, a place that understands what men want. Professional, masculine, and worth every minute. I've been coming for over a year and every single cut has been perfect.",
-    name: "David K.",
-    title: "Regular Client",
+      "A great experience. Terrific haircut. A nose and ear wax was recommended by Nenad. It was my first one and the results were eye-opening and transformative. And the vibe in the shop was great.",
+    name: "Bill J.",
+    title: "Verified Client",
     rating: 5,
   },
   {
     id: "t3",
     quote:
-      "Walked in without an appointment and they fit me right in. Maxwell gave me the best fade I've ever had. The vibe is incredible — brick walls, great music, and top-shelf cocktails.",
-    name: "James L.",
-    title: "First-Time Client",
+      "Great atmosphere and even better haircut! Such a hospitable environment.",
+    name: "Ivan",
+    title: "Verified Client",
     rating: 5,
   },
   {
     id: "t4",
     quote:
-      "The hot towel shave changed everything. I drove 45 minutes from Fort Myers and it was worth every mile. This is the only barbershop I trust with my look.",
-    name: "Chris P.",
-    title: "Fort Myers Client",
+      "This was my first visit and it could not have been a better experience! The Barber Shop is very nice, and more importantly, Emilio is an extremely talented and passionate barber!",
+    name: "Robert N.",
+    title: "First-Time Client",
     rating: 5,
   },
   {
     id: "t5",
     quote:
-      "My son and I both get our cuts here. The barbers are craftsmen who make everyone feel welcome. It's become our Saturday tradition.",
-    name: "Robert T.",
-    title: "Regular Client",
+      "The Best Barber in SWFL Hands Down!",
+    name: "Timothy K.",
+    title: "Verified Client",
+    rating: 5,
+  },
+  {
+    id: "t6",
+    quote:
+      "One of the best haircuts I've ever had!",
+    name: "Kevin A.",
+    title: "Verified Client",
+    rating: 5,
+  },
+  {
+    id: "t7",
+    quote:
+      "Best haircut I've ever had — 10/10.",
+    name: "Booksy Review",
+    title: "Verified Client",
     rating: 5,
   },
 ] as const;
