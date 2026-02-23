@@ -97,7 +97,7 @@ function LocalBusinessSchema() {
     },
     image: `${SITE_CONFIG.url}/images/hero/hero-barbershop.jpg`,
     priceRange: "$$",
-    sameAs: ["https://instagram.com/oldfashionbarbershop"],
+    sameAs: ["https://www.instagram.com/oldfashionbarbershopnaples/"],
   };
 
   return (

@@ -35,7 +35,7 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const SOCIAL_LINKS = {
-  instagram: "https://instagram.com/oldfashionbarbershop",
+  instagram: "https://www.instagram.com/oldfashionbarbershopnaples/",
 } as const;
 
 export const GOOGLE_REVIEWS_URL =
