@@ -82,7 +82,7 @@ export default function Hero() {
             >
               <Image
                 src={HERO_IMAGES[currentSlide].src}
-                alt=""
+                alt={HERO_IMAGES[currentSlide].alt}
                 fill
                 sizes="100vw"
                 priority={currentSlide === 0}

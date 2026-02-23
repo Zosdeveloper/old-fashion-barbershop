@@ -41,6 +41,8 @@ export const SOCIAL_LINKS = {
 export const GOOGLE_REVIEWS_URL =
   "https://maps.app.goo.gl/fMmbtTDaZR3curwW9";
 
+export const GOOGLE_REVIEW_COUNT = 483;
+
 export const BOOKSY_URL =
   process.env.NEXT_PUBLIC_BOOKSY_URL ||
   "https://booksy.com/en-us/558504_nenad-niko-mitrovic_barber-shop_15685_naples";

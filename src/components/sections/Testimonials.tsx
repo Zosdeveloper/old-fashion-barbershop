@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container, Section } from "@/components/ui";
-import { TESTIMONIALS, GOOGLE_REVIEWS_URL } from "@/lib/constants";
+import { TESTIMONIALS, GOOGLE_REVIEWS_URL, GOOGLE_REVIEW_COUNT } from "@/lib/constants";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -24,7 +24,7 @@ function StarRating({ rating }: { rating: number }) {
 
 function TestimonialCard({ testimonial }: { testimonial: (typeof TESTIMONIALS)[number] }) {
   return (
-    <div className="flex-shrink-0 w-[380px] md:w-[440px] bg-primary-black-900/60 border border-primary-black-800 rounded-sm p-8 mx-3">
+    <div className="flex-shrink-0 w-[380px] md:w-[440px] bg-primary-black-900/60 border border-primary-black-800 rounded-sm p-8 mx-3 transition-all duration-500 hover:border-primary-gold/30 hover:bg-primary-black-900/80">
       <StarRating rating={testimonial.rating} />
       <blockquote>
         <p className="text-white font-heading text-lg md:text-xl leading-snug font-medium mb-6">
@@ -91,7 +91,7 @@ export default function Testimonials() {
             className="text-center mb-10"
           >
             <span className="inline-block text-primary-gold font-body text-sm uppercase tracking-[0.4em]">
-              483 Five-Star Reviews
+              {GOOGLE_REVIEW_COUNT} Five-Star Reviews
             </span>
           </motion.div>
 

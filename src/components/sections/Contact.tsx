@@ -27,7 +27,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="space-y-8"
             >
               {/* Phone */}
@@ -86,7 +86,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-primary-black-800"
             >
               <iframe

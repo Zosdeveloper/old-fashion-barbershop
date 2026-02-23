@@ -67,7 +67,7 @@ function ServiceCard({
 
   const tiltStyle: MotionStyle = isTouch
     ? {}
-    : { rotateX, rotateY, transformPerspective: 1000 };
+    : { rotateX, rotateY, transformPerspective: 1000, translateZ: 0, willChange: "transform" };
 
   return (
     <motion.div

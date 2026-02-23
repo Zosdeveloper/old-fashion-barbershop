@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   SITE_CONFIG,
   BUSINESS_INFO,
@@ -96,13 +97,13 @@ export default function Footer() {
 
             <nav className="space-y-3 mb-8">
               {NAV_ITEMS.map((item) => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="block font-body text-primary-black-300 text-base hover:text-primary-gold transition-colors duration-300"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -135,15 +136,15 @@ export default function Footer() {
               &copy; {year} {SITE_CONFIG.name}
             </p>
             <div className="flex items-center gap-4">
-              <a href="/privacy-policy" className="font-body text-primary-black-600 text-xs hover:text-primary-gold transition-colors duration-300">
+              <Link href="/privacy-policy" className="font-body text-primary-black-600 text-xs hover:text-primary-gold transition-colors duration-300">
                 Privacy Policy
-              </a>
-              <a href="/terms" className="font-body text-primary-black-600 text-xs hover:text-primary-gold transition-colors duration-300">
+              </Link>
+              <Link href="/terms" className="font-body text-primary-black-600 text-xs hover:text-primary-gold transition-colors duration-300">
                 Terms
-              </a>
+              </Link>
             </div>
             <p
-              className="font-body text-primary-black-700 uppercase"
+              className="font-body text-primary-black-600 uppercase"
               style={{ fontSize: "10px", letterSpacing: "0.25em" }}
             >
               Naples, Florida &middot; Est. MMXX
