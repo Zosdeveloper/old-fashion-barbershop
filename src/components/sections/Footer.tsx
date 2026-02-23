@@ -134,6 +134,14 @@ export default function Footer() {
             <p className="font-body text-primary-black-600 text-xs">
               &copy; {year} {SITE_CONFIG.name}
             </p>
+            <div className="flex items-center gap-4">
+              <a href="/privacy-policy" className="font-body text-primary-black-600 text-xs hover:text-primary-gold transition-colors duration-300">
+                Privacy Policy
+              </a>
+              <a href="/terms" className="font-body text-primary-black-600 text-xs hover:text-primary-gold transition-colors duration-300">
+                Terms
+              </a>
+            </div>
             <p
               className="font-body text-primary-black-700 uppercase"
               style={{ fontSize: "10px", letterSpacing: "0.25em" }}

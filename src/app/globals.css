@@ -238,6 +238,21 @@
   100% { transform: var(--kb-to); }
 }
 
+/* Testimonial infinite scroll marquee */
+.testimonial-marquee {
+  animation: marqueeScroll 25s linear infinite;
+  width: max-content;
+}
+
+.testimonial-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }
   10% { transform: translate(-5%, -10%); }

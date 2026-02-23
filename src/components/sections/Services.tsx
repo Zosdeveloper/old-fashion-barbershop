@@ -102,7 +102,7 @@ function ServiceCard({
         {isSignature && (
           <div className="absolute top-4 left-4 md:top-6 md:left-6">
             <span className="inline-block bg-primary-gold/90 text-primary-black-900 px-3 py-1 text-xs font-heading font-bold uppercase tracking-[0.2em] rounded-sm">
-              Core Service
+              {service.id === "best-experience" ? "Premium Experience" : "Core Service"}
             </span>
           </div>
         )}
@@ -160,13 +160,15 @@ function ServiceCard({
 /* ------------------------------------------------------------------ */
 
 export default function Services() {
-  const standardServices = SERVICES.filter((s) => !s.signature);
+  const standardServices = SERVICES.filter((s) => !s.signature && s.id !== "best-experience");
   const signatureService = SERVICES.find((s) => s.signature);
+  const bestExperience = SERVICES.find((s) => s.id === "best-experience");
 
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const signatureRef = useRef<HTMLDivElement>(null);
+  const bestExpRef = useRef<HTMLDivElement>(null);
   const addonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -223,6 +225,24 @@ export default function Services() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: signatureRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+      }
+
+      if (bestExpRef.current) {
+        gsap.fromTo(
+          bestExpRef.current,
+          { opacity: 0, y: 60, scale: 0.92 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: bestExpRef.current,
               start: "top 85%",
             },
           }
@@ -305,13 +325,18 @@ export default function Services() {
             </div>
           )}
 
-          {/* Row 3: centered */}
-          {standardServices[4] && (
-            <div className="md:col-span-6 md:col-start-4">
-              <ServiceCard service={standardServices[4]} className="h-full" />
-            </div>
-          )}
         </div>
+
+        {/* Best Experience — Full Width (matches Core Service) */}
+        {bestExperience && (
+          <div ref={bestExpRef} className="mt-5">
+            <ServiceCard
+              service={bestExperience}
+              isSignature
+              className="border border-primary-gold/20"
+            />
+          </div>
+        )}
 
         {/* Add-on Services */}
         <div ref={addonsRef} className="mt-12 md:mt-16">

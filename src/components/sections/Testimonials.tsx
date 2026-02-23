@@ -1,18 +1,17 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, type PanInfo } from "framer-motion";
+import { motion } from "framer-motion";
 import { Container, Section } from "@/components/ui";
 import { TESTIMONIALS } from "@/lib/constants";
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-1.5 justify-center mb-8">
+    <div className="flex gap-1 mb-4">
       {Array.from({ length: rating }).map((_, i) => (
         <svg
           key={i}
-          className="w-5 h-5 text-primary-gold"
+          className="w-4 h-4 text-primary-gold"
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -23,67 +22,37 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-const slideVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 60 : -60,
-    opacity: 0,
-    filter: "blur(4px)",
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-    filter: "blur(0px)",
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-  exit: (direction: number) => ({
-    x: direction < 0 ? 60 : -60,
-    opacity: 0,
-    filter: "blur(4px)",
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  }),
-};
+function TestimonialCard({ testimonial }: { testimonial: (typeof TESTIMONIALS)[number] }) {
+  return (
+    <div className="flex-shrink-0 w-[380px] md:w-[440px] bg-primary-black-900/60 border border-primary-black-800 rounded-sm p-8 mx-3">
+      <StarRating rating={testimonial.rating} />
+      <blockquote>
+        <p className="text-white font-heading text-lg md:text-xl leading-snug font-medium mb-6">
+          &ldquo;{testimonial.quote}&rdquo;
+        </p>
+      </blockquote>
+      <div className="flex items-center gap-3">
+        <span className="block w-6 h-px bg-primary-gold/40" />
+        <div>
+          <p className="text-primary-gold font-body text-sm uppercase tracking-[0.15em]">
+            {testimonial.name}
+          </p>
+          <p className="text-primary-black-500 font-body text-xs mt-0.5">
+            {testimonial.title}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Testimonials() {
-  const [[current, direction], setCurrent] = useState([0, 0]);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const paginate = useCallback(
-    (newDirection: number) => {
-      setCurrent(([prev]) => {
-        const next =
-          (prev + newDirection + TESTIMONIALS.length) % TESTIMONIALS.length;
-        return [next, newDirection];
-      });
-    },
-    []
-  );
-
-  const handleDragEnd = useCallback(
-    (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-      const swipeThreshold = 50;
-      if (info.offset.x < -swipeThreshold) paginate(1);
-      else if (info.offset.x > swipeThreshold) paginate(-1);
-    },
-    [paginate]
-  );
-
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => paginate(1), 7000);
-    return () => clearInterval(timer);
-  }, [isPaused, paginate]);
-
-  const testimonial = TESTIMONIALS[current];
+  // Double the items for seamless loop
+  const items = [...TESTIMONIALS, ...TESTIMONIALS];
 
   return (
     <Section className="relative overflow-hidden !py-0">
-      <div className="relative min-h-[600px] md:min-h-[700px] flex items-center">
+      <div className="relative min-h-[500px] md:min-h-[550px] flex items-center">
         {/* Background image with heavy overlay */}
         <div className="absolute inset-0">
           <Image
@@ -112,126 +81,35 @@ export default function Testimonials() {
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-1/3 bg-gradient-to-b from-transparent via-primary-gold/20 to-transparent hidden lg:block" />
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-1/3 bg-gradient-to-b from-transparent via-primary-gold/20 to-transparent hidden lg:block" />
 
-        <Container className="relative z-10 py-20 md:py-28">
+        <div className="relative z-10 w-full py-16 md:py-20">
+          {/* Section label */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center mb-10"
           >
-            {/* Section label */}
-            <div className="text-center mb-4">
-              <span className="inline-block text-primary-gold font-body text-sm uppercase tracking-[0.4em]">
-                344 Five-Star Reviews
-              </span>
-            </div>
+            <span className="inline-block text-primary-gold font-body text-sm uppercase tracking-[0.4em]">
+              344 Five-Star Reviews
+            </span>
+          </motion.div>
 
-            {/* Carousel */}
-            <div
-              className="relative max-w-4xl mx-auto"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              <div className="relative min-h-[320px] md:min-h-[280px] flex items-center">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={current}
-                    custom={direction}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.15}
-                    onDragEnd={handleDragEnd}
-                    className="w-full px-4 md:px-20 cursor-grab active:cursor-grabbing"
-                  >
-                    <div className="text-center">
-                      <StarRating rating={testimonial.rating} />
-                      <blockquote>
-                        <p className="text-white font-heading text-2xl md:text-3xl lg:text-4xl leading-snug md:leading-snug font-medium mb-10">
-                          &ldquo;{testimonial.quote}&rdquo;
-                        </p>
-                      </blockquote>
-                      <div className="flex items-center justify-center gap-3">
-                        <span className="block w-8 h-px bg-primary-gold/40" />
-                        <p className="text-primary-gold font-body text-base uppercase tracking-[0.2em]">
-                          {testimonial.name}
-                        </p>
-                        <span className="block w-8 h-px bg-primary-gold/40" />
-                      </div>
-                      <p className="text-primary-black-500 font-body text-sm mt-2">
-                        {testimonial.title}
-                      </p>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+          {/* Infinite scroll marquee */}
+          <div className="relative">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(13,13,13,0.95) 0%, transparent 100%)" }} />
+            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, rgba(13,13,13,0.95) 0%, transparent 100%)" }} />
 
-              {/* Navigation arrows */}
-              <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none">
-                <button
-                  onClick={() => paginate(-1)}
-                  className="pointer-events-auto p-3 text-primary-black-600 hover:text-primary-gold transition-colors duration-300 -ml-2 md:-ml-8"
-                  aria-label="Previous testimonial"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="15 18 9 12 15 6" />
-                  </svg>
-                </button>
-                <button
-                  onClick={() => paginate(1)}
-                  className="pointer-events-auto p-3 text-primary-black-600 hover:text-primary-gold transition-colors duration-300 -mr-2 md:-mr-8"
-                  aria-label="Next testimonial"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </button>
-              </div>
-
-              {/* Progress dots */}
-              <div className="flex justify-center gap-3 mt-10">
-                {TESTIMONIALS.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() =>
-                      setCurrent([i, i > current ? 1 : -1])
-                    }
-                    className="relative h-[2px] overflow-hidden rounded-full transition-all duration-500"
-                    style={{ width: i === current ? "2.5rem" : "0.75rem" }}
-                    aria-label={`Go to testimonial ${i + 1}`}
-                  >
-                    <div
-                      className={`absolute inset-0 transition-colors duration-500 ${
-                        i === current ? "bg-primary-gold" : "bg-primary-black-700"
-                      }`}
-                    />
-                  </button>
+            <div className="overflow-hidden">
+              <div className="testimonial-marquee flex">
+                {items.map((t, i) => (
+                  <TestimonialCard key={`${t.id}-${i}`} testimonial={t} />
                 ))}
               </div>
             </div>
-          </motion.div>
-        </Container>
+          </div>
+        </div>
       </div>
     </Section>
   );

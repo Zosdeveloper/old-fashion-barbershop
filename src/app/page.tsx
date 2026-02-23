@@ -18,8 +18,7 @@ export default function Home() {
             {BUSINESS_INFO.address.full}, in the heart of downtown Naples.
             Specializing in precision haircuts, beard shaping, hot steam shaves,
             and signature grooming rituals — walk-ins are welcome, or book ahead
-            on Booksy. Serving Naples, Bonita Springs, Fort Myers, Marco Island,
-            and Cape Coral.
+            on Booksy. Proudly serving Naples and Southwest Florida.
           </p>
         </div>
       </section>
@@ -31,7 +30,6 @@ export default function Home() {
       <Testimonials />
       <SectionDivider variant="gold-line" />
       <Contact />
-      <SectionDivider variant="fade" flip />
       <FAQ />
     </>
   );
