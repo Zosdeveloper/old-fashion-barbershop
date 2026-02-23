@@ -56,6 +56,10 @@ export default function Footer() {
             >
               {BUSINESS_INFO.phone}
             </a>
+
+            <p className="font-body text-primary-black-500 text-sm mt-6">
+              Proudly serving {BUSINESS_INFO.serviceArea.join(", ")}.
+            </p>
           </div>
 
           {/* ── Hours ── */}

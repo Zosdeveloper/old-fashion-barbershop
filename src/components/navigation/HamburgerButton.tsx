@@ -34,7 +34,7 @@ export default function HamburgerButton({
     <button
       onClick={toggle}
       className={cn(
-        "relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[6px] md:hidden",
+        "relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-[6px] md:hidden",
         className
       )}
       aria-label={isOpen ? "Close menu" : "Open menu"}

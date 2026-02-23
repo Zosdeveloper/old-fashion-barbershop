@@ -5,6 +5,8 @@ import {
   ADDON_SERVICES,
   TESTIMONIALS,
   FAQ_ITEMS,
+  BOOKSY_URL,
+  GOOGLE_REVIEWS_URL,
 } from "@/lib/constants";
 
 function LocalBusinessSchema() {
@@ -96,8 +98,31 @@ function LocalBusinessSchema() {
       ],
     },
     image: `${SITE_CONFIG.url}/images/hero/hero-barbershop.jpg`,
+    logo: `${SITE_CONFIG.url}/images/logo.png`,
     priceRange: "$$",
-    sameAs: ["https://www.instagram.com/oldfashionbarbershopnaples/"],
+    paymentAccepted: "Cash, Credit Card, Debit Card, Apple Pay, Google Pay",
+    currenciesAccepted: "USD",
+    foundingDate: "2020",
+    founder: {
+      "@type": "Person",
+      name: "Nenad Niko Mitrovic",
+    },
+    hasMap: GOOGLE_REVIEWS_URL,
+    potentialAction: {
+      "@type": "ReserveAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: BOOKSY_URL,
+      },
+      result: {
+        "@type": "Reservation",
+        name: "Barbershop Appointment",
+      },
+    },
+    sameAs: [
+      "https://www.instagram.com/oldfashionbarbershopnaples/",
+      BOOKSY_URL,
+    ],
   };
 
   return (

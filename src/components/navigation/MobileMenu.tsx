@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -51,6 +52,34 @@ const itemVariants = {
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   useScrollLock(isOpen);
   const pathname = usePathname();
+  const menuRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!isOpen || !menuRef.current) return;
+    const el = menuRef.current;
+    const focusable = el.querySelectorAll<HTMLElement>(
+      'a, button, [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const timer = setTimeout(() => first?.focus(), 100);
+
+    const trap = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    };
+    el.addEventListener("keydown", trap);
+    return () => {
+      clearTimeout(timer);
+      el.removeEventListener("keydown", trap);
+    };
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -68,6 +97,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
           {/* Menu Panel */}
           <motion.nav
+            ref={menuRef}
             variants={menuVariants}
             initial="closed"
             animate="open"
