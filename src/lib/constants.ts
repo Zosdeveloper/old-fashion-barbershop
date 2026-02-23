@@ -227,6 +227,30 @@ export const TESTIMONIALS = [
     title: "Google Review",
     rating: 5,
   },
+  {
+    id: "t8",
+    quote:
+      "10/10 My husband and I were on vacation. He didn't get a chance to get a haircut before we left. Long story short I googled barber shops near our hotel and found this gem. Nenad aka Niko was fantastic. From the minute we walked in his customer service was exceptional. He gave my husband the royal treatment. Probably one of the best haircuts he's ever had. Will definitely be booking his services again when we are back in Naples!",
+    name: "Diana Obradovic",
+    title: "Google Review",
+    rating: 5,
+  },
+  {
+    id: "t9",
+    quote:
+      "Max is hands down one of the best barbers I've ever been to. From the moment you sit in his chair, you can tell he truly cares about his craft. His attention to detail is next level, and he takes the time to really listen to what you want, then somehow makes it even better than you imagined. The fade was flawless, the lines were sharp, and the overall cut looked clean for weeks. Highly recommended.",
+    name: "EC W.",
+    title: "Google Review",
+    rating: 5,
+  },
+  {
+    id: "t10",
+    quote:
+      "Great barbershop with a welcoming vibe and skilled barbers. The shop is clean, well-organized, and runs on time. My barber took the time to listen to what I wanted and delivered exactly that — sharp, clean, and detailed. Friendly conversation without feeling rushed, and the attention to detail really shows. Easily one of the best haircuts I've had.",
+    name: "Zarko Surdoski",
+    title: "Google Review",
+    rating: 5,
+  },
 ] as const;
 
 export const FAQ_ITEMS = [
