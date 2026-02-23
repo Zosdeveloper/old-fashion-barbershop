@@ -43,7 +43,7 @@ export const GOOGLE_REVIEWS_URL =
 
 export const BOOKSY_URL =
   process.env.NEXT_PUBLIC_BOOKSY_URL ||
-  "https://booksy.com/en-us/653477_oldfashion-barbershop_barber-shop_15685_naples";
+  "https://booksy.com/en-us/558504_nenad-niko-mitrovic_barber-shop_15685_naples";
 
 export const HERO_IMAGES = [
   { src: "/images/hero/hero-beard-trim.jpg", alt: "Master barber trimming a client's beard" },

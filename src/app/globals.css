@@ -240,7 +240,7 @@
 
 /* Testimonial infinite scroll marquee */
 .testimonial-marquee {
-  animation: marqueeScroll 25s linear infinite;
+  animation: marqueeScroll 50s linear infinite;
   width: max-content;
 }
 
