@@ -58,7 +58,7 @@ export default function Footer() {
             </a>
 
             <p className="font-body text-primary-black-500 text-sm mt-6">
-              Proudly serving {BUSINESS_INFO.serviceArea.join(", ")}.
+              Proudly serving Naples and Southwest Florida.
             </p>
           </div>
 
