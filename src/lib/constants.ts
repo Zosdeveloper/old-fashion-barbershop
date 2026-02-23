@@ -174,57 +174,57 @@ export const TESTIMONIALS = [
   {
     id: "t1",
     quote:
-      "This is probably one of the best barbershops in Naples. Niko, Max and the rest of his staff are very kind, nice and professional. It's a real fun place to get your haircut. And if you have time, Niko does an amazing shave. A++",
-    name: "Booksy Review",
-    title: "Verified Client",
+      "Been going here for about a year now, great atmosphere with complimentary drinks as you wait. They offer tons of options and each haircut makes you feel like a new man. Trust me, you'll never want another shop to touch your hair after you experience the Old Fashion Barbershop way. Max has always taken good care of me — he's detailed and his work is always immaculate.",
+    name: "Brian Giacomello",
+    title: "Google Review",
     rating: 5,
   },
   {
     id: "t2",
     quote:
-      "A great experience. Terrific haircut. A nose and ear wax was recommended by Nenad. It was my first one and the results were eye-opening and transformative. And the vibe in the shop was great.",
-    name: "Bill J.",
-    title: "Verified Client",
+      "Emilio was wonderful! Very attentive to what I wanted as a first time beard guy. The bourbon old fashioned at the beginning was a nice touch. The entire experience felt very personalized. Will be back next year when I'm in the area!",
+    name: "Tyler Ferschweiler",
+    title: "Google Review",
     rating: 5,
   },
   {
     id: "t3",
     quote:
-      "Great atmosphere and even better haircut! Such a hospitable environment.",
-    name: "Ivan",
-    title: "Verified Client",
+      "Emilio is a class act component of a class act establishment. Extreme attention to detail combined with salon-level expertise left me deeply impressed. The guy is good — simple as that. The price points represent significant value in the dazzling Naples market.",
+    name: "JT",
+    title: "Google Review",
     rating: 5,
   },
   {
     id: "t4",
     quote:
-      "This was my first visit and it could not have been a better experience! The Barber Shop is very nice, and more importantly, Emilio is an extremely talented and passionate barber!",
-    name: "Robert N.",
-    title: "First-Time Client",
+      "Emilio is exceptional! Cool shop, great energy, flawless cut. My dad walked out feeling confident and fresh — the best haircut he's ever had. We'll be back. Thanks, Emilio!",
+    name: "Michele",
+    title: "Google Review",
     rating: 5,
   },
   {
     id: "t5",
     quote:
-      "The Best Barber in SWFL Hands Down!",
-    name: "Timothy K.",
-    title: "Verified Client",
+      "Absolutely love this shop! Every Barber is tip top on every style they do! Expert barbers with flawless & consistent cuts every time! My Son is so happy we found this shop! The place has a great vibe and everyone is very welcoming and friendly! Most definitely recommended!",
+    name: "Loren Cancillose",
+    title: "Google Review",
     rating: 5,
   },
   {
     id: "t6",
     quote:
-      "One of the best haircuts I've ever had!",
-    name: "Kevin A.",
-    title: "Verified Client",
+      "I visited Naples and needed a fresh haircut. Found OldFashion barbershop, called them and they accommodated right away. My barber Emilio was super professional. Definitely recommended this place.",
+    name: "Julio Alcate",
+    title: "Google Review",
     rating: 5,
   },
   {
     id: "t7",
     quote:
-      "Best haircut I've ever had — 10/10.",
-    name: "Booksy Review",
-    title: "Verified Client",
+      "Phenomenal experience! Serves the best beverages while you get the best hair cut of your life. Right in the heart of Naples by the bars too! If they are busy, there is plenty of bars around until you get a spot in line for a cut!",
+    name: "Jordan Hagaborn",
+    title: "Google Review",
     rating: 5,
   },
 ] as const;
