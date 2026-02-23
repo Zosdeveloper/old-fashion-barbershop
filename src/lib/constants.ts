@@ -167,6 +167,7 @@ export const TEAM_MEMBERS = [
     role: "Owner & Master Barber",
     bio: "The vision behind the chair. 350+ five-star reviews and counting.",
     image: "/images/team/barber-01.jpg",
+    bookingUrl: "https://booksy.com/en-us/558504_nenad-niko-mitrovic_barber-shop_15685_naples",
   },
   {
     id: "maxwell",
@@ -174,6 +175,7 @@ export const TEAM_MEMBERS = [
     role: "Senior Barber",
     bio: "Precision fades and sharp line work. Recommended on Booksy.",
     image: "/images/team/barber-02.jpg",
+    bookingUrl: "https://booksy.com/en-us/718637_maxwell-max-roman_barber-shop_15685_naples#ba_s=sh_1",
   },
   {
     id: "emilio",
@@ -181,6 +183,7 @@ export const TEAM_MEMBERS = [
     role: "Barber & Stylist",
     bio: "Classic technique meets modern style. Recommended on Booksy.",
     image: "/images/team/barber-03.jpg",
+    bookingUrl: "https://booksy.com/en-us/1608147_emilio-cruz_barber-shop_15685_naples#ba_s=sh_1",
   },
   {
     id: "amar",
@@ -188,6 +191,7 @@ export const TEAM_MEMBERS = [
     role: "Barber",
     bio: "Old-school passion, clean results. Every cut tailored to you.",
     image: "/images/team/barber-04.jpg",
+    bookingUrl: "https://booksy.com/en-us/1689284_amar-hot_barber-shop_15685_naples#ba_s=sh_1",
   },
 ] as const;
 

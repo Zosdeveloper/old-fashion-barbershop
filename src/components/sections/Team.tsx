@@ -5,7 +5,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Container, Section, Button } from "@/components/ui";
-import { TEAM_MEMBERS, BOOKSY_URL } from "@/lib/constants";
+import { TEAM_MEMBERS } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,7 +106,7 @@ export default function Team() {
                 <p className="text-primary-black-300 font-body text-sm leading-relaxed mb-4">
                   {member.bio}
                 </p>
-                <Button href={BOOKSY_URL} variant="primary" size="sm">
+                <Button href={member.bookingUrl} variant="primary" size="sm">
                   Book {member.name.split(" ")[0]}
                 </Button>
               </div>
