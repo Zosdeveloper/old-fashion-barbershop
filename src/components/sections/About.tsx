@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -86,11 +87,54 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
+  /* Slow the video to 0.6x for a cinematic feel */
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.6;
+    }
+  }, []);
+
   return (
-    <div ref={sectionRef}>
-      {/* ── Craftsmanship Meets Tradition — Cinematic Light Leak ── */}
-      <section id="about" className="light-leak bg-charcoal py-section lg:py-section-lg">
-        <Container className="max-w-6xl relative z-10">
+    <div ref={sectionRef} className="relative overflow-hidden">
+      {/* ── Cinematic Video Background (spans both sections) ── */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+        aria-hidden="true"
+      >
+        <source src="/videos/cocktail-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark overlay — keeps text legible, adds moody warmth */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          zIndex: 1,
+          background:
+            "linear-gradient(180deg, rgba(18,18,18,0.88) 0%, rgba(28,22,16,0.82) 40%, rgba(28,22,16,0.82) 60%, rgba(18,18,18,0.88) 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Subtle warm vignette edges */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          zIndex: 2,
+          boxShadow: "inset 0 0 200px 60px rgba(0,0,0,0.5)",
+        }}
+        aria-hidden="true"
+      />
+
+      {/* ── Craftsmanship Meets Tradition ── */}
+      <section id="about" className="relative py-section lg:py-section-lg" style={{ zIndex: 5 }}>
+        <Container className="max-w-6xl relative">
           <div className="about-header text-center mb-16">
             <p className="text-primary-gold font-body text-sm uppercase tracking-[0.3em] mb-3">
               Our Story
@@ -138,9 +182,17 @@ export default function About() {
         </Container>
       </section>
 
-      {/* ── Hand-Crafted Old Fashioned — Amber Grain Wash ── */}
-      <section className="about-cocktail amber-wash py-section lg:py-section-lg">
-        <Container className="max-w-6xl relative z-10">
+      {/* ── Subtle divider between sections ── */}
+      <div
+        className="relative mx-auto max-w-6xl px-4"
+        style={{ zIndex: 5 }}
+      >
+        <div className="h-px bg-gradient-to-r from-transparent via-primary-gold/25 to-transparent" />
+      </div>
+
+      {/* ── Hand-Crafted Old Fashioned ── */}
+      <section className="about-cocktail relative py-section lg:py-section-lg" style={{ zIndex: 5 }}>
+        <Container className="max-w-6xl relative">
           <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
             <div className="md:col-span-2">
               <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
