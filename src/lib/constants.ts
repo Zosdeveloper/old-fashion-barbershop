@@ -56,14 +56,6 @@ export const HERO_IMAGES = [
 
 export const SERVICES = [
   {
-    id: "kids-cut",
-    title: "Kid's Cut",
-    description: "A classic introduction to grooming, delivered with patience and precision. We make it comfortable, professional, and fun. Teaching the next generation what quality grooming looks like.",
-    image: "/images/services/kids-cut.jpg",
-    duration: "30min",
-    signature: false,
-  },
-  {
     id: "mens-haircut",
     title: "Men's Haircut",
     description: "A tailored cut built around your style, facial structure, and lifestyle. We assess your hair type, face shape, and personal preferences to deliver a cut that looks sharp and feels right. This isn't a template — it's precision craftsmanship designed for you.",
@@ -84,7 +76,7 @@ export const SERVICES = [
     title: "Haircut & Hot Steam Shave",
     subtitle: "Premium",
     description: "The classic straight razor shave with steam, hot towels, and a finishing ritual using high-quality aftershave. Paired with a precision haircut, this is old-school grooming at its finest — no rushing, no compromise.",
-    image: "/images/services/line-work.jpg",
+    image: "/images/services/hot-steam-shave.jpg",
     duration: "1h",
     signature: false,
   },
@@ -93,6 +85,14 @@ export const SERVICES = [
     title: "Hot Steam Shave",
     description: "The classic straight razor shave with steam, hot towels, and a finishing ritual. Smooth, clean, and incredibly satisfying. This is old-school grooming at its finest.",
     image: "/images/services/fade.jpg",
+    duration: "30min",
+    signature: false,
+  },
+  {
+    id: "kids-cut",
+    title: "Kid's Cut",
+    description: "A classic introduction to grooming, delivered with patience and precision. We make it comfortable, professional, and fun. Teaching the next generation what quality grooming looks like.",
+    image: "/images/services/kids-cut.jpg",
     duration: "30min",
     signature: false,
   },
