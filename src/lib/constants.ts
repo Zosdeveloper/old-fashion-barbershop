@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   tagline: "Where Men Elevate Their Presence",
   description:
     "Premium barbershop in Naples, FL. Expert haircuts, fades, beard shaping, and hot towel shaves in a refined atmosphere. Walk-ins welcome.",
-  url: "https://oldfashionbarbershop.com",
+  url: "https://www.oldfashionnaples.com",
 } as const;
 
 export const BUSINESS_INFO = {
@@ -123,8 +123,6 @@ export const GALLERY_CATEGORIES: GalleryCategory[] = [
 ];
 
 export const GALLERY_ITEMS = [
-  { id: "cuts-01", src: "/images/gallery/cuts-01.jpg", alt: "Fresh fade with styled top on young client", category: "Cuts" as const },
-  { id: "cuts-02", src: "/images/gallery/cuts-02.jpg", alt: "Clean skin fade side profile", category: "Cuts" as const },
   { id: "cuts-03", src: "/images/gallery/cuts-03.jpg", alt: "Precision fade with textured finish", category: "Cuts" as const },
   { id: "cuts-04", src: "/images/gallery/cuts-04.jpg", alt: "Curly hair detail work from behind", category: "Cuts" as const },
   { id: "cuts-05", src: "/images/gallery/cuts-05.jpg", alt: "Client portrait after fresh haircut", category: "Cuts" as const },
@@ -158,6 +156,8 @@ export const GALLERY_ITEMS = [
   { id: "cuts-22", src: "/images/gallery/cuts-22.jpg", alt: "Barber trimming beard with gold clippers", category: "Cuts" as const },
   { id: "interior-05", src: "/images/gallery/interior-05.jpg", alt: "Espresso machine, vinyl player and whiskey cabinet", category: "Interior" as const },
   { id: "cocktails-05", src: "/images/gallery/cocktails-05.jpg", alt: "Old Fashioned cocktail setup with Woodford Reserve bourbon", category: "Cocktails" as const },
+  { id: "cuts-01", src: "/images/gallery/cuts-01.jpg", alt: "Fresh fade with styled top on young client", category: "Cuts" as const },
+  { id: "cuts-02", src: "/images/gallery/cuts-02.jpg", alt: "Clean skin fade side profile on young client", category: "Cuts" as const },
 ] as const;
 
 export const TEAM_MEMBERS = [
